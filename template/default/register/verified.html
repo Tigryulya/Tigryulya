@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang = "EN">
+<head>
+	<meta charset = "UTF-8">
+	<title></title>
+	<link rel = "stylesheet" type = "text/css" href = "../template/default/css/style.css">
+	<link rel = "stylesheet" type = "text/css" href = "../template/default/css/guest.css">
+	<script type = "text/javascript" src = "../template/default/javascript/script.js"></script>
+</head>
+<body>
+
+	<div style = "display: none;" class = "wrap_add_mod_edit" id = "wrap_add_mod">
+		<div class = "wrap_add_mod_content_edit">
+			<div class = "wrap_top_header_content">
+				<div class = "title_content">Редактирование Электроннлй почты</div>
+				<div id = "close_content" class = "wrap_function_all_cancellation">
+					<img title = "Закрыть окно" class = "wrap_function_selete_server_cancellation" src = "../img/cancellation.svg">
+				</div>
+			</div>
+<!--  -->
+					<div class = "wrap_block_input_name">
+						<div class = "wrap_block_name_add">Электронная почта:</div><div class = "wrap_input"><input id = "email"type = "email" placeholder = "Электронная почта"  class = "big_text"></div>
+					</div>
+
+
+					<div class = "wrap_block_send_info">
+						<button onclick = "edit_email()" class = "button_click_send button_active_on">Отправить</button>
+					</div>
+
+					<div style = "display: none;" id = "wrap_success_edit_email" class = "wrap_success_edit_email">
+						<div class = "test_success">Вы успешно изменили Электронную почту</div>
+					</div>
+<!--  -->
+		</div>
+	</div>
+
+	<div class = "wrapper">
+
+		<div class = "border">
+
+			<div class = "wrap_verified_position">
+				<div class = "wrap_verified_block_content page_block">
+					<div id = "redstrestre"></div>
+					<div class = "wrap_title_content">Подтверждение регистрации</div>
+					<div class = "wrap_name_content">Мы выслали на вашу электроную почту сообще с кодом.</div>
+
+					<div class = "wrap_fiend_code">
+						<div class = "wrap_name_input">Электронная почта</div>
+						<div class = "wrap_input"><input style = "width: 228px;" disabled id = "email_edit" value = "<?php echo $_SESSION['verified']['email']; ?>" class = "big_text"></div>
+
+
+						<button id = "button_wrap_one" class = "edit_email button_no_active">Изменить электроную почту</button>
+						<button id = "time" onclick = "testTimer(120)" class = "send_new_code button_no_active">Выслать новый код</button>
+					</div>
+
+					<div class = "wrap_fiend_code">
+						<div class = "wrap_name_input">Код</div>
+						<div class = "wrap_input"><input id = "code_input" placeholder = "Код" value = "<?php echo $_COOKIE['okay_password']; ?>" class = "big_text"></div>
+					</div>
+
+
+					<div id = "button_wrap">
+						<div class = "button_wrap">
+							<button onclick = "come_up()" class = "wrap_send_button button_active">Отправить</button>
+						</div>
+					</div>
+
+
+					<div id = "add_password">
+						<?php
+
+						if (isset($_COOKIE['okay_password']))
+						{
+							echo '<script>document.getElementById("button_wrap").innerHTML = "";</script>';
+							echo '<script type="text/javascript">document.getElementById("button_wrap_one").setAttribute("disabled",""); document.getElementById("time").setAttribute("disabled","");</script>';
+							echo '<div class = "wrap_fiend_code"><div class = "wrap_name_input">Пароль</div><div class = "wrap_input"><input id = "password" class = "big_text"></div></div><div class = "button_wrap"><button class = "wrap_send_button button_active_on" onclick = "set_password()">Отправить</button></div>';
+						}
+
+						?>
+
+					</div>
+
+				</div>
+			</div>
+
+<?php
+
+	include './template/default/notify.html';
+
+?>
+
+		</div>
+	</div>
+
+<script type="text/javascript">
+
+function come_up()
+{
+	var form = new FormData();
+
+	var code = document.getElementById('code_input').value;
+
+	form.append("code", code);
+
+	var xhr = new XMLHttpRequest();
+	xhr.open("POST", '../ajax/verified.php', true);
+	xhr.send(form);
+
+	xhr.onreadystatechange = function() {
+		console.log(xhr.responseText);
+		document.getElementById("test").innerHTML = xhr.responseText;
+
+		if (xhr.responseText == 'OK')
+		{
+			document.getElementById("add_password").innerHTML = '<div class = "wrap_fiend_code"><div class = "wrap_name_input">Пароль</div><input class = "wrap_input_code text_field_input" id = "password"></div><div class = "button_wrap"><button class = "wrap_send_button button_active_on" onclick = "set_password()">Отправить</button></div>';
+			document.getElementById("button_wrap").innerHTML = '';
+			
+			document.getElementById("button_wrap_one").setAttribute("disabled","");
+			document.getElementById("time").setAttribute("disabled","");
+
+			div = document.querySelector('div.closes');
+			div.style.display = "none";
+		}else
+		{
+			div = document.querySelector('div.closes');
+			div.style.display = "block";
+		}
+	}
+}
+
+function set_password()
+{
+	var form = new FormData();
+
+	var password = document.getElementById('password').value;
+
+	form.append("password", password);
+
+	var xhr = new XMLHttpRequest();
+	xhr.open("POST", '../ajax/verified_who.php', true);
+	xhr.send(form);
+
+	xhr.onreadystatechange = function() {
+		console.log(xhr.responseText);
+		document.getElementById("test").innerHTML = xhr.responseText;
+
+		if (xhr.responseText == 'OK')
+		{
+			document.location.href = "../register=finish";
+			div = document.querySelector('div.closes');
+			div.style.display = "none";
+		}else
+		{
+			div = document.querySelector('div.closes');
+			div.style.display = "block";
+		}
+	}
+}
+
+function edit_email()
+{
+	var form = new FormData();
+
+	var email = document.getElementById('email').value;
+
+	form.append("email", email);
+
+	var xhr = new XMLHttpRequest();
+	xhr.open("POST", '../ajax/opdate.php', true);
+	xhr.send(form);
+
+	xhr.onreadystatechange = function() {
+		console.log(xhr.responseText);
+		document.getElementById("test").innerHTML = xhr.responseText;
+
+		if (xhr.responseText == 'OK')
+		{
+			wrap_success_edit_email.style.display = "block";
+			div = document.querySelector('div.closes');
+			div.style.display = "none";
+
+			document.getElementById('email_edit').value = email;
+		}else
+		{
+			div = document.querySelector('div.closes');
+			div.style.display = "block";
+			wrap_success_edit_email.style.display = "none";
+		}
+	}
+}
+
+var contents = document.getElementById('wrap_add_mod');
+var buttons = document.getElementById('button_wrap_one');
+var closes = document.getElementById('close_content');
+			
+buttons.onclick = function () {
+	contents.style.display = "block";
+}
+			
+closes.onclick = function () {
+	contents.style.display = "none";
+}
+
+// Действует на весь сайт
+window.onclick = function(eventw)
+{
+	if (eventw.target == contents)
+	{
+		contents.style.display = "none";
+	}
+}
+// Действует на весь сайт
+
+
+
+
+
+var stopTimer; //Объявим переменную
+   
+//Функция для старта 
+function testTimer(startTime)
+{
+	if (startTime == 120)
+	{
+		var form = new FormData();
+		var email = document.getElementById('email_edit').value;
+		form.append("email", email);
+
+		var xhr = new XMLHttpRequest();
+		xhr.open("POST", '../ajax/send_code_email.php', true);
+		xhr.send(form);
+	}
+
+    //сколько будет длиться обратный отчет
+    var time = startTime;
+
+    //определим сколько минут
+    var min = parseInt(time / 60);
+    if ( min < 1 ) min = 0;
+	time = parseInt(time - min * 60);
+    if ( min < 10 ) min = '0'+min;
+
+    //определим сколько секунд
+    var seconds = time;
+    if ( seconds < 10 ) seconds = '0'+seconds;
+
+    //отрисовываем время
+    document.getElementById("time").innerHTML = '<span>Осталось времени '+min+' мин '+seconds+' секунд</span>';
+
+    //уменьшаем общее время на одну секунду
+    startTime--;
+
+    if (startTime != 0)
+    {
+     	document.getElementById("time").setAttribute("disabled","");
+    }
+
+    //смотрим время не закончилось
+    if (startTime  >= 0 )
+    {
+		//если нет, то повторяем процедуру заново
+       	stopTimer  =  setTimeout(function(){testTimer(startTime); }, 1000);
+
+	   	//если закончилось, то выводим сообщение на экран, и делаем кнопку запуска активной
+  	} else
+  	{
+    	clearTimeout(stopTimer);
+
+    	var time = document.getElementById("time");
+
+    	time.removeAttribute("disabled","disabled");
+
+    	time.removeChild(time.childNodes[0]);
+
+    	var text = document.createTextNode("Выслать еще раз новый код");
+
+    	time.appendChild(text);
+    }
+}
+
+</script>
+
+</body>
+</html>

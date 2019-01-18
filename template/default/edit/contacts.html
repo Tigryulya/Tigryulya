@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang = "EN">
+<head>
+	<meta charset = "UTF-8">
+	<title></title>
+	<link rel = "stylesheet" type = "text/css" href = "../template/default/css/style.css">
+	<link rel = "stylesheet" type = "text/css" href = "../template/default/css/edit.css">
+	<script type = "text/javascript" src = "../template/default/javascript/script.js"></script>
+</head>
+<body>
+	<div class = "wrapper_border">
+		<div class = "wrapper_content page_block">
+
+			<div class = "wrapper_content_header">
+				<div class = "header_title"><?php echo $language['contact']; ?></div>
+			</div>
+
+			<div class = "wrap_function_border_bottom">
+
+				<div class = "pedit_row">
+
+					<div class = "label_name"><?php echo $language['country']; ?>:</div>
+					<input value = "<?php echo $edit['country']; ?>" id = "country" class = "field_function" placeholder = "<?php echo $language['noy_indicated']; ?>">
+				</div>
+
+				<div class = "pedit_row">
+
+					<div class = "label_name"><?php echo $language['city']; ?>:</div>
+					<input value = "<?php echo $edit['city']; ?>" id = "city" class = "field_function" placeholder = "<?php echo $language['noy_indicated']; ?>">
+				</div>
+
+				<div class = "border_bottom"></div>
+
+				<div class = "pedit_row">
+
+					<div class = "label_name"><?php echo $language['phone']; ?>:</div>
+					<input value = "<?php echo $edit['mobile']; ?>" id = "phone" class = "field_function" placeholder = "<?php echo $language['noy_indicated']; ?>">
+				</div>
+
+				<div class = "pedit_row">
+
+					<div class = "label_name"><?php echo $language['add_phone']; ?>:</div>
+					<input value = "<?php echo $edit['add_phone']; ?>" id = "add_phone" class = "field_function" placeholder = "<?php echo $language['noy_indicated']; ?>">
+				</div>
+
+				<div class = "pedit_row">
+
+					<div class = "label_name"><?php echo $language['skype']; ?>:</div>
+					<input value = "<?php echo $edit['skype']; ?>" id = "skype" class = "field_function" placeholder = "<?php echo $language['noy_indicated']; ?>">
+				</div>
+
+				<div class = "pedit_row">
+
+					<div class = "label_name"><?php echo $language['discord']; ?>:</div>
+					<input value = "<?php echo $edit['discord']; ?>" id = "discord" class = "field_function" placeholder = "<?php echo $language['noy_indicated']; ?>">
+				</div>
+
+				<div class = "pedit_row">
+
+					<div class = "label_name"><?php echo $language['website']; ?>:</div>
+					<input value = "<?php echo $edit['website']; ?>" id = "website" class = "field_function" placeholder = "<?php echo $language['noy_indicated']; ?>">
+				</div>
+
+				<div class = "pedit_row">
+
+					<div class = "label_name"><?php echo $language['email']; ?>:</div>
+					<input value = "<?php echo $edit['email_info']; ?>" id = "email" class = "field_function" placeholder = "<?php echo $language['noy_indicated']; ?>">
+				</div>
+
+			<div class = "border_bottom"></div>
+
+			<div class = "wrap_edit_button_mine">
+				<button onclick = "edit_contacts_opdate()" class = "edit_button_mine button_active_on"><?php echo $language['send']; ?></button>
+			</div>
+				
+			</div>
+
+		</div>
+
+		<div class = "wrapper_sitebar page_block">
+
+			<a href = "/edit">
+				<div class = "sitebar_element">
+					<div class = "sitebar_element_name"><?php echo $language['basic']; ?></div>
+				</div>
+			</a>
+
+				<div class = "sitebar_element active">
+					<div class = "sitebar_element_name active_name"><?php echo $language['contact']; ?></div>
+				</div>
+
+			<a href = "/edit=interests">
+				<div class = "sitebar_element">
+					<div class = "sitebar_element_name"><?php echo $language['interests']; ?></div>
+				</div>
+			</a>
+
+			<a href = "/edit=position">
+				<div class = "sitebar_element">
+					<div class = "sitebar_element_name"><?php echo $language['personal']; ?></div>
+				</div>
+			</a>
+
+		</div>
+
+	</div>
+
+<?php
+
+	include './template/default/notify.html';
+
+?>
+
+<script type="text/javascript">
+	
+function edit_contacts_opdate()
+{
+	var form = new FormData();
+
+	form.append("country", document.getElementById('country').value);
+	form.append("city", document.getElementById('city').value);
+	form.append("phone", document.getElementById('phone').value);
+	form.append("add_phone", document.getElementById('add_phone').value);
+	form.append("skype", document.getElementById('skype').value);
+	form.append("discord", document.getElementById('discord').value);
+	form.append("website", document.getElementById('website').value);
+	form.append("email", document.getElementById('email').value);
+
+	var xhr = new XMLHttpRequest();
+	xhr.open("POST", '../ajax/contacts.php', true);
+	xhr.send(form);
+
+	xhr.onreadystatechange = function() {
+		console.log(xhr.responseText);
+		document.getElementById("test").innerHTML = xhr.responseText;
+
+		if (xhr.responseText == 'OK')
+		{
+			div = document.querySelector('div.closes');
+			div.style.display = "none";
+		}else
+		{
+			div = document.querySelector('div.closes');
+			div.style.display = "block";
+		}
+	}
+}
+
+</script>
+
+</body>
+</html>

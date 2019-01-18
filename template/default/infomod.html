@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang =" en ">
+<head>
+	<meta charset = "UTF-8">
+	<title>MODS</title>
+	<link rel = "stylesheet" type = "text/css" href = "../template/default/css/style.css">
+	<link rel = "stylesheet" type = "text/css" href = "../template/default/css/guest.css">
+	<script type = "text/javascript" src = "../template/default/javascript/script.js"></script>
+</head>
+<body>
+	<div class = "wrapper">
+
+			<div style = "display: none;" class = "wrap_add_mod" id = "wrap_add_mod">
+				<div class = "wrap_add_mod_content">
+					<div class = "wrap_top_header_content">
+						<div id = "close_content" class = "wrap_function_all_cancellation"><img title = "Закрыть окно" class = "wrap_function_selete_server_cancellation" src = "../img/cancellation.svg"></div>
+					</div>
+
+					<div class = "wrap_block_input_name">
+						<div class = "wrap_block_name_add">Имя Сервера:</div>
+
+						<div class = "wrap_select_option_server">
+							<select id = "server">
+								<option selected value = "Server" >Сервер</option>
+								<option value = "HiTech">HiTech</option>
+								<option value = "Magic">Magic</option>
+								<option value = "Techno_Magic">Techno Magic</option>
+							</select>
+						</div>
+
+					</div>
+
+					<div class = "wrap_block_input_name">
+						<div class = "wrap_block_name_add">Имя файла:</div><input id = "name_file" class = "wrap_block_add_file" type = "name">
+					</div>
+
+					<div class = "wrap_block_input_name">
+						<div class = "wrap_block_name_add">Описание:</div><input id = "description" class = "wrap_block_add_file" type = "text">
+					</div>
+
+					<div class = "wrap_block_input_name">
+						<div class = "wrap_block_name_add">Файл:</div><input id = "file" class = "wrap_block_add_file" type = "file">
+					</div>
+
+					<div class = "wrap_block_input_name">
+						<div class = "wrap_block_name_add">Сервер или Клиент:</div>
+
+						<div class = "wrap_select_option_server">
+							<select id = "server_or_client">
+								<option selected value = "not_chosen">Не выбрано</option>
+								<option value = "Server">Сервер</option>
+								<option value = "Client">Клиент</option>
+								<option value = "Server_and_Client">Сервер и Клиент</option>
+							</select>
+						</div>
+
+					</div>
+
+
+					<div class = "wrap_block_send_info">
+						<button onclick = "button_click_send()" class = "button_click_send button_active_on">Отправить</button>
+					</div>
+
+				</div>
+			</div>
+
+		<div class = "border">
+
+			<div class = "wrap_mods page_block">
+				<div class = "wrap_function_all"><img id = "button_content" title = "Добавить" class = "wrap_function_selete_server" src = "../img/add.png"></div>
+				<div class = "wrap_border_bottom"></div>
+				<div id = "content_mods"></div>
+			</div>
+
+			<div id = "alert"></div>
+
+			<script type="text/javascript">
+
+			obdate_mods_content();
+
+			function obdate_mods_content()
+			{
+				var form = new FormData();
+
+				var server = document.getElementById('server').value;
+				var description = document.getElementById('description').value;
+				var file = document.getElementById('file');
+
+				//form.append("server", server);
+				//form.append("description", description);
+				//form.append("file", file.files[0]);
+
+				var xhr = new XMLHttpRequest();
+				xhr.open("POST", '../ajax/ckeck_mods.php', true);
+				xhr.send(form);
+
+				xhr.onreadystatechange = function() {
+					document.getElementById("content_mods").innerHTML = xhr.responseText;
+					console.log(xhr.responseText);
+				}
+			}
+
+			function wrap_description_click(intsss)
+			{
+				var wrap_description = document.getElementById('wrap_description' + intsss);
+
+				wrap_description.style.display = wrap_description.style.display == "none" ? "block" : "none";
+			}
+
+			var contents = document.getElementById('wrap_add_mod');
+			var buttons = document.getElementById('button_content');
+			var closes = document.getElementById('close_content');
+			
+			buttons.onclick = function () {
+				contents.style.display = "block";
+			}
+			
+			closes.onclick = function () {
+				contents.style.display = "none";
+			}
+
+			// Действует на весь сайт
+			window.onclick = function(eventw)
+			{
+				if (eventw.target == contents)
+				{
+					contents.style.display = "none";
+				}
+			}
+			// Действует на весь сайт
+
+
+			function button_click_send()
+			{
+				var form = new FormData();
+
+				var name = document.getElementById('name_file').value;
+				var server = document.getElementById('server').value;
+				var description = document.getElementById('description').value;
+				var file = document.getElementById('file');
+				var server_or_client = document.getElementById('server_or_client').value;
+
+				form.append("name", name);
+				form.append("server", server);
+				form.append("description", description);
+				form.append("file", file.files[0]);
+				form.append("server_or_client", server_or_client);
+
+				var xhr = new XMLHttpRequest();
+				xhr.open("POST", '../ajax/add_mod.php', true);
+				xhr.send(form);
+
+				xhr.onreadystatechange = function() {
+					document.getElementById("alert").innerHTML = xhr.responseText;
+					console.log(xhr.responseText);
+					obdate_mods_content();
+				}
+			}
+
+			// function delete_file(id)
+			// {
+			// 	var form = new FormData();
+
+			// 	form.append("id", id);
+
+			// 	var xhr = new XMLHttpRequest();
+			// 	xhr.open("POST", '../ajax/text.php', true);
+			// 	xhr.send(form);
+
+			// 	xhr.onreadystatechange = function() {
+			// 		document.getElementById("alert").innerHTML = xhr.responseText;
+			// 		console.log(xhr.responseText);
+			// 		obdate_mods_content();
+			// 	}
+			// }
+
+			</script>
+
+		</div>
+	</div>
+</body>
+</html>

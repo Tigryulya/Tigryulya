@@ -1,0 +1,87 @@
+html, body, div, span, a, input, textarea, button, select, option, ul, li, img {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+}
+
+a {
+    color: #2a5885;
+    text-decoration: none;
+    cursor: pointer;
+}
+a:hover {
+    text-decoration: underline;
+}
+
+ul {
+    list-style: none;
+}
+body {
+    font-family: -apple-system,BlinkMacSystemFont,Roboto,Helvetica Neue,sans-serif;
+    background: #edeef0;
+}
+
+/* Button style active */
+.button_active {
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    background-color: #5181b8;
+}
+.button_active:hover {
+    background-color: #5b88bd;
+}
+.button_active:active {
+    background-color: #4872a3;
+}
+/* Button style active */
+
+/* Button style no_active */
+.button_no_active {
+    border: none;
+    border-radius: 4px;
+    background-color: #e5ebf1;
+}
+.button_no_active:hover {
+    background-color: #dfe6ed;
+}
+.button_no_active:active {
+    background-color: #dae2ea;
+}
+/* Button style no_active */
+
+/* Alert */
+.notify {
+    position: fixed;
+    bottom: 7%;
+    right: 3%;
+    background-color: #3e3f43cc;
+    color: #fff;
+    padding: 10px;
+    min-width: 200px;
+    max-width: 400px;
+    border-radius: 4px;
+    z-index: 120;
+}
+.title_alert {
+    padding-bottom: 5px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: default;
+}
+.text_alert {
+    cursor: default;
+    padding-left: 10px;
+    font-size: 14px;
+}
+.notify > .close {
+    cursor: pointer;
+    float: right;
+    color: #9E9E9E;
+    font-size: 18px;
+    line-height: 20px;
+    z-index: 120;
+}
+.notify > .close:hover {
+    color: #fff;
+}

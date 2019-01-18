@@ -1,0 +1,145 @@
+.page_block {
+    position: relative;
+    background: #fff;
+    border-radius: 2px;
+    box-shadow: 0 1px 0 0 #d7d8db, 0 0 0 1px #e3e4e8;
+    margin: 15px 0 0;
+}
+
+
+
+/* User */
+.wrapper_content {
+	position: relative;
+	top: 42px;
+	width: 820px;
+	margin: 0 auto;
+}
+.wrap_content_user { /* Content user */
+	float: left;
+	width: 600px;
+}
+.wrap_info_user {
+	width: 100%;
+	height: 100%;
+	float: left;
+}
+
+
+
+
+
+.wrap_sitebar_user { /* SiteBar user */
+	float: right;
+	width: 200px;
+}
+.wrap_block_page_user {
+	width: 230px;
+	height: 375px;
+}
+
+.avatar_in_block_photo {
+	padding: 15px;
+	width: 200px;
+	height: 299px;
+}
+.button_in_block_photo {
+	margin: 0 15px;
+	width: 200px;
+	height: 25px;
+}
+
+
+
+
+
+
+
+
+
+
+.user_name_surname {
+	padding: 15px 20px;
+	font-size: 20px;
+	color: #000;
+}
+.user_statue {
+	float: right;
+	font-size: 12.5px;
+	padding: 10px 10px;
+	color: green
+}
+.information_user {
+	position: relative;
+	padding: 20px 20px;
+	bottom: 10px;
+	font-size: 12px;
+}
+.info_name_category_name {
+	float: left;
+	width: 220px;
+	line-height: 15px;
+	color: #828282;
+	line-height: 23px;
+}
+.info_name_category {
+	float: left;
+	width: 250px;
+	line-height: 23px;
+}
+
+
+.catery_block_info_user {
+	float: left;
+	border-top: 1px solid #e7e8ec;
+	width: 560px;
+	margin: 0 20px;
+	padding-bottom: 20px;
+}
+.category_info_user {
+	width: 100%;
+	text-align: center;
+	font-size: 12px;
+	margin: -6px 0 0 0;
+}
+.category_info_user_name {
+	background: #fff;
+	padding: 0 10px;
+}
+
+
+
+
+
+
+.show_button_info {
+	text-align: center;
+}
+.show_button_info_div a {
+	text-decoration:  none;
+}
+.show_button_info_div {
+	float: left;
+	cursor: pointer;
+	width: 570px;
+	text-align: center;
+	padding: 10px 0;
+	font-size: 14px;
+	margin: 0 15px;
+	border-radius: 4px;
+}
+.show_button_info_div:hover {
+	background: #f2f2f2;
+}
+.border_bottom {
+	margin: 10px 0;
+	width: 100%;
+	height: 94px;
+}
+
+
+
+[contentEditable=true]:empty:not(:focus):before {
+    content:attr(data-text);
+    color: #9E9E9E;
+}

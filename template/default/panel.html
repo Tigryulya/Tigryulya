@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang = "EN">
+<head>
+	<meta charset = "UTF-8">
+	<title></title>
+	<link rel = "stylesheet" type = "text/css" href = "../template/default/css/style.css">
+	<link rel = "stylesheet" type = "text/css" href = "../template/default/css/panel.css">
+	<script type = "text/javascript" src = "../template/default/javascript/script.js"></script>
+</head>
+<body>
+
+	<?php>
+
+	$res = mysqli_fetch_row(mysqli_query($Connection, "SELECT COUNT(*) FROM `news`"));
+	$news = $res[0];
+
+	$res_1 = mysqli_fetch_row(mysqli_query($Connection, "SELECT COUNT(*) FROM `users`"));
+	$users = $res_1[0];
+
+	?>
+
+	<div class = "wrapper">
+		<div class = "margin">
+
+			<div class = "conent_info">
+				<div class = "wrap_select"><div class = "paragraph">Всего записей</div><div class = "number"><?php echo $news; ?></div></div>
+
+				<div class = "wrap_select"><div class = "paragraph">Всего пользователей</div><div class = "number"><?php echo $users; ?></div></div>
+
+				<div class = "paragraph"></div><div class = "number"></div>
+			</div>
+
+		</div>
+	</div>
+
+</body>
+</html>
+
+<script type="text/javascript">
+	
+
+</script>

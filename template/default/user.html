@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang = "EN">
+<head>
+	<meta charset = "UTF-8">
+	<title></title>
+	<link rel = "stylesheet" type = "text/css" href = "../template/default/css/style.css">
+	<link rel = "stylesheet" type = "text/css" href = "../template/default/css/user.css">
+	<link rel = "stylesheet" type = "text/css" href = "../template/default/css/news.css">
+	<script type = "text/javascript" src = "../template/default/javascript/script.js"></script>
+</head>
+<body>
+
+	<div class = "wrapper">
+		<div class = "wrapper_content">
+
+			<div class = "wrap_content_user">
+				<div class = "wrap_info_user page_block">
+					<div class = "user_statue">online</div>
+					<div class = "user_name_surname"><?php echo $user['name'] . ' ' . $user['surname']; ?></div>
+
+					<div class = "catery_block_info_user"><div class = "category_info_user"><span class = "category_info_user_name">Основная информация</span></div></div>
+						<div class = "information_user">
+						
+							<div>
+								<?php
+									 if ($user['family'] == '1') echo '<div class = "info_name_category_name">'.$language['family'].':</div><div class = "info_name_category">'.$language['noy_married'].'</div>';
+								else if ($user['family'] == '2') echo '<div class = "info_name_category_name">'.$language['family'].':</div><div class = "info_name_category">'.$language['dating'].'</div>';
+								else if ($user['family'] == '3') echo '<div class = "info_name_category_name">'.$language['family'].':</div><div class = "info_name_category">'.$language['engaged'].'</div>';
+								else if ($user['family'] == '4') echo '<div class = "info_name_category_name">'.$language['family'].':</div><div class = "info_name_category">'.$language['married'].'</div>';
+								else if ($user['family'] == '5') echo '<div class = "info_name_category_name">'.$language['family'].':</div><div class = "info_name_category">'.$language['civil_marriage'].'</div>';
+								else if ($user['family'] == '6') echo '<div class = "info_name_category_name">'.$language['family'].':</div><div class = "info_name_category">'.$language['In_love'].'</div>';
+								else if ($user['family'] == '7') echo '<div class = "info_name_category_name">'.$language['family'].':</div><div class = "info_name_category">'.$language['all_complicated'].'</div>';
+								else if ($user['family'] == '8') echo '<div class = "info_name_category_name">'.$language['family'].':</div><div class = "info_name_category">'.$language['activy_searching'].'</div>';
+								?>
+							</div>
+							<div>
+								<?php
+									 if ($user['birthday_access'] == '1' && $user['birth_month'] == '1') echo '<div class = "info_name_category_name">'.$language['birthday'].':</div><div class = "info_name_category">'.$user['birth_day'] . ' ' . $language['January'] . ' ' . $user['birth_year'].'</div>';
+								else if ($user['birthday_access'] == '1' && $user['birth_month'] == '2') echo '<div class = "info_name_category_name">'.$language['birthday'].':</div><div class = "info_name_category">'.$user['birth_day'] . ' ' . $language['Martha'] . ' ' . $user['birth_year'].'</div>';
+								else if ($user['birthday_access'] == '1' && $user['birth_month'] == '3') echo '<div class = "info_name_category_name">'.$language['birthday'].':</div><div class = "info_name_category">'.$user['birth_day'] . ' ' . $language['Martha'] . ' ' . $user['birth_year'].'</div>';
+								else if ($user['birthday_access'] == '1' && $user['birth_month'] == '4') echo '<div class = "info_name_category_name">'.$language['birthday'].':</div><div class = "info_name_category">'.$user['birth_day'] . ' ' . $language['April'] . ' ' . $user['birth_year'].'</div>';
+								else if ($user['birthday_access'] == '1' && $user['birth_month'] == '5') echo '<div class = "info_name_category_name">'.$language['birthday'].':</div><div class = "info_name_category">'.$user['birth_day'] . ' ' . $language['May'] . ' ' . $user['birth_year'].'</div>';
+								else if ($user['birthday_access'] == '1' && $user['birth_month'] == '6') echo '<div class = "info_name_category_name">'.$language['birthday'].':</div><div class = "info_name_category">'.$user['birth_day'] . ' ' . $language['June'] . ' ' . $user['birth_year'].'</div>';
+								else if ($user['birthday_access'] == '1' && $user['birth_month'] == '7') echo '<div class = "info_name_category_name">'.$language['birthday'].':</div><div class = "info_name_category">'.$user['birth_day'] . ' ' . $language['July'] . ' ' . $user['birth_year'].'</div>';
+								else if ($user['birthday_access'] == '1' && $user['birth_month'] == '8') echo '<div class = "info_name_category_name">'.$language['birthday'].':</div><div class = "info_name_category">'.$user['birth_day'] . ' ' . $language['Augusta'] . ' ' . $user['birth_year'].'</div>';
+								else if ($user['birthday_access'] == '1' && $user['birth_month'] == '9') echo '<div class = "info_name_category_name">'.$language['birthday'].':</div><div class = "info_name_category">'.$user['birth_day'] . ' ' . $language['September'] . ' ' . $user['birth_year'].'</div>';
+								else if ($user['birthday_access'] == '1' && $user['birth_month'] == '10') echo '<div class = "info_name_category_name">'.$language['birthday'].':</div><div class = "info_name_category">'.$user['birth_day'] . ' ' . $language['October'] . ' ' . $user['birth_year'].'</div>';
+								else if ($user['birthday_access'] == '1' && $user['birth_month'] == '11') echo '<div class = "info_name_category_name">'.$language['birthday'].':</div><div class = "info_name_category">'.$user['birth_day'] . ' ' . $language['November'] . ' ' . $user['birth_year'].'</div>';
+								else if ($user['birthday_access'] == '1' && $user['birth_month'] == '12') echo '<div class = "info_name_category_name">'.$language['birthday'].':</div><div class = "info_name_category">'.$user['birth_day'] . ' ' . $language['December'] . ' ' . $user['birth_year'].'</div>';
+
+									if ($user['birthday_access'] == '2' && $user['birth_month'] == '1') echo '<div class = "info_name_category_name">'.$language['birthday'].':</div><div class = "info_name_category">'.$user['birth_day'] . ' ' . $language['December'] . '</div>';
+								else if ($user['birthday_access'] == '2' && $user['birth_month'] == '2') echo '<div class = "info_name_category_name">'.$language['birthday'].':</div><div class = "info_name_category">'.$user['birth_day'] . ' ' . $language['December'] . '</div>';
+								else if ($user['birthday_access'] == '2' && $user['birth_month'] == '3') echo '<div class = "info_name_category_name">'.$language['birthday'].':</div><div class = "info_name_category">'.$user['birth_day'] . ' ' . $language['December'] . '</div>';
+								else if ($user['birthday_access'] == '2' && $user['birth_month'] == '4') echo '<div class = "info_name_category_name">'.$language['birthday'].':</div><div class = "info_name_category">'.$user['birth_day'] . ' ' . $language['December'] . '</div>';
+								else if ($user['birthday_access'] == '2' && $user['birth_month'] == '5') echo '<div class = "info_name_category_name">'.$language['birthday'].':</div><div class = "info_name_category">'.$user['birth_day'] . ' ' . $language['December'] . '</div>';
+								else if ($user['birthday_access'] == '2' && $user['birth_month'] == '6') echo '<div class = "info_name_category_name">'.$language['birthday'].':</div><div class = "info_name_category">'.$user['birth_day'] . ' ' . $language['December'] . '</div>';
+								else if ($user['birthday_access'] == '2' && $user['birth_month'] == '7') echo '<div class = "info_name_category_name">'.$language['birthday'].':</div><div class = "info_name_category">'.$user['birth_day'] . ' ' . $language['December'] . '</div>';
+								else if ($user['birthday_access'] == '2' && $user['birth_month'] == '8') echo '<div class = "info_name_category_name">'.$language['birthday'].':</div><div class = "info_name_category">'.$user['birth_day'] . ' ' . $language['December'] . '</div>';
+								else if ($user['birthday_access'] == '2' && $user['birth_month'] == '9') echo '<div class = "info_name_category_name">'.$language['birthday'].':</div><div class = "info_name_category">'.$user['birth_day'] . ' ' . $language['December'] . '</div>';
+								else if ($user['birthday_access'] == '2' && $user['birth_month'] == '10') echo '<div class = "info_name_category_name">'.$language['birthday'].':</div><div class = "info_name_category">'.$user['birth_day'] . ' ' . $language['December'] . '</div>';
+								else if ($user['birthday_access'] == '2' && $user['birth_month'] == '11') echo '<div class = "info_name_category_name">'.$language['birthday'].':</div><div class = "info_name_category">'.$user['birth_day'] . ' ' . $language['December'] . '</div>';
+								else if ($user['birthday_access'] == '2' && $user['birth_month'] == '12') echo '<div class = "info_name_category_name">'.$language['birthday'].':</div><div class = "info_name_category">'.$user['birth_day'] . ' ' . $language['December'] . '</div>';
+								
+								if ($user['hometown'] != '') echo '<div class = "info_name_category_name">'.$language['hometown'].':</div><div class = "info_name_category">'.$user['hometown'].'</div>';
+								if ($user['languages'] != '') echo '<div class = "info_name_category_name">'.$language['languages'].':</div><div class = "info_name_category">'.$user['languages'].'</div>';
+								?>
+							</div></div>
+
+					<div onclick = "show_block('show_block_info_user')" class = "show_button_info_div">
+						<a id =  "show_text_one" style = "display: block;">Показать дополнительную информацию</a>
+						<a id =  "show_text_two" style = "display: none;">Скрыть дополнительную информацию</a></div>
+
+					<div class = "border_bottom"></div>
+
+					<div id = "show_block_info_user" style = "display: none;" class = "show_block_info_user">
+						<div class = "catery_block_info_user"><div class = "category_info_user"><span class = "category_info_user_name">Контактная информация</span></div></div>
+							<div class = "information_user">
+
+								<?php
+									if ($user['mobile'] != '') echo '<div class = "info_name_category_name">'.$language['phone'].':</div><div class = "info_name_category">'.$user['mobile'].'</div>';
+									if ($user['add_phone'] != '') echo '<div class = "info_name_category_name">'.$language['add_phone'].':</div><div class = "info_name_category">'.$user['add_phone'].'</div>';
+									if ($user['skype'] != '') echo '<div class = "info_name_category_name">'.$language['skype'].':</div><div class = "info_name_category">'.$user['skype'].'</div>';
+									if ($user['discord'] != '') echo '<div class = "info_name_category_name">'.$language['discord'].':</div><div class = "info_name_category">'.$user['discord'].'</div>';
+									if ($user['website'] != '') echo '<div class = "info_name_category_name">'.$language['website'].':</div><div class = "info_name_category">'.$user['website'].'</div>';
+									if ($user['email_info'] != '') echo '<div class = "info_name_category_name">'.$language['email'].':</div><div class = "info_name_category">'.$user['email_info'].'</div>';
+								?>
+
+							</div>
+						<div class = "catery_block_info_user"><div class = "category_info_user"><span class = "category_info_user_name">Интересы</span></div></div>
+							<div class = "information_user">
+
+								<?php
+									if ($user['activity'] != '') echo '<div class = "info_name_category_name">'.$language['activity'].':</div><div class = "info_name_category">'.$user['activity'].'</div>';
+									if ($user['interests'] != '') echo '<div class = "info_name_category_name">'.$language['interests'].':</div><div class = "info_name_category">'.$user['interests'].'</div>';
+									if ($user['favorite_music'] != '') echo '<div class = "info_name_category_name">'.$language['favorite_music'].':</div><div class = "info_name_category">'.$user['favorite_music'].'</div>';
+									if ($user['favorite_movies'] != '') echo '<div class = "info_name_category_name">'.$language['favorite_movies'].':</div><div class = "info_name_category">'.$user['favorite_movies'].'</div>';
+									if ($user['favorite_tv'] != '') echo '<div class = "info_name_category_name">'.$language['favorite_tv'].':</div><div class = "info_name_category">'.$user['favorite_tv'].'</div>';
+									if ($user['favorite_books'] != '') echo '<div class = "info_name_category_name">'.$language['favorite_books'].':</div><div class = "info_name_category">'.$user['favorite_books'].'</div>';
+									if ($user['favorite_games'] != '') echo '<div class = "info_name_category_name">'.$language['favorite_games'].':</div><div class = "info_name_category">'.$user['favorite_games'].'</div>';
+									if ($user['favorite_quotes'] != '') echo '<div class = "info_name_category_name">'.$language['favorite_quotes'].':</div><div class = "info_name_category">'.$user['favorite_quotes'].'</div>';
+									if ($user['about_me'] != '') echo '<div class = "info_name_category_name">'.$language['about_me'].':</div><div class = "info_name_category">'.$user['about_me'].'</div>';
+								?>
+
+							</div>
+						<div class = "catery_block_info_user"><div class = "category_info_user"><span class = "category_info_user_name">Жизненная позиция</span></div></div>
+							<div class = "information_user">
+
+								<?php
+									if ($user['political_preferences'] == '2') echo '<div class = "info_name_category_name">'.$language['political_preferences'].':</div><div class = "info_name_category">'.$language['apathetic'].'</div>';
+									else if ($user['political_preferences'] == '3') echo '<div class = "info_name_category_name">'.$language['political_preferences'].':</div><div class = "info_name_category">'.$language['communist'].'</div>';
+									else if ($user['political_preferences'] == '4') echo '<div class = "info_name_category_name">'.$language['political_preferences'].':</div><div class = "info_name_category">'.$language['socialist'].'</div>';
+									else if ($user['political_preferences'] == '5') echo '<div class = "info_name_category_name">'.$language['political_preferences'].':</div><div class = "info_name_category">'.$language['moderate'].'</div>';
+									else if ($user['political_preferences'] == '6') echo '<div class = "info_name_category_name">'.$language['political_preferences'].':</div><div class = "info_name_category">'.$language['liberal'].'</div>';
+									else if ($user['political_preferences'] == '7') echo '<div class = "info_name_category_name">'.$language['political_preferences'].':</div><div class = "info_name_category">'.$language['conservative'].'</div>';
+									else if ($user['political_preferences'] == '8') echo '<div class = "info_name_category_name">'.$language['political_preferences'].':</div><div class = "info_name_category">'.$language['monarchist'].'</div>';
+									else if ($user['political_preferences'] == '9') echo '<div class = "info_name_category_name">'.$language['political_preferences'].':</div><div class = "info_name_category">'.$language['ultraconservative'].'</div>';
+									else if ($user['political_preferences'] == '10') echo '<div class = "info_name_category_name">'.$language['political_preferences'].':</div><div class = "info_name_category">'.$language['libertarian'].'</div>';
+
+									if ($user['worldview'] == '2') echo '<div class = "info_name_category_name">'.$language['worldview'].':</div><div class = "info_name_category">'.$language['worldview'].'</div>';
+									else if ($user['worldview'] == '3') echo '<div class = "info_name_category_name">'.$language['worldview'].':</div><div class = "info_name_category">'.$language['worldview'].'</div>';
+									else if ($user['worldview'] == '4') echo '<div class = "info_name_category_name">'.$language['worldview'].':</div><div class = "info_name_category">'.$language['worldview'].'</div>';
+									else if ($user['worldview'] == '5') echo '<div class = "info_name_category_name">'.$language['worldview'].':</div><div class = "info_name_category">'.$language['worldview'].'</div>';
+									else if ($user['worldview'] == '6') echo '<div class = "info_name_category_name">'.$language['worldview'].':</div><div class = "info_name_category">'.$language['worldview'].'</div>';
+									else if ($user['worldview'] == '7') echo '<div class = "info_name_category_name">'.$language['worldview'].':</div><div class = "info_name_category">'.$language['worldview'].'</div>';
+									else if ($user['worldview'] == '8') echo '<div class = "info_name_category_name">'.$language['worldview'].':</div><div class = "info_name_category">'.$language['worldview'].'</div>';
+									else if ($user['worldview'] == '9') echo '<div class = "info_name_category_name">'.$language['worldview'].':</div><div class = "info_name_category">'.$language['worldview'].'</div>';
+									else if ($user['worldview'] == '10') echo '<div class = "info_name_category_name">'.$language['worldview'].':</div><div class = "info_name_category">'.$language['worldview'].'</div>';
+
+									if ($user['main_life'] == '2') echo '<div class = "info_name_category_name">'.$language['main_life'].':</div><div class = "info_name_category">'.$language['family_children'].'</div>';
+									else if ($user['main_life'] == '3') echo '<div class = "info_name_category_name">'.$language['main_life'].':</div><div class = "info_name_category">'.$language['career_money'].'</div>';
+									else if ($user['main_life'] == '4') echo '<div class = "info_name_category_name">'.$language['main_life'].':</div><div class = "info_name_category">'.$language['entertainment_leisure'].'</div>';
+									else if ($user['main_life'] == '5') echo '<div class = "info_name_category_name">'.$language['main_life'].':</div><div class = "info_name_category">'.$language['science_research'].'</div>';
+									else if ($user['main_life'] == '6') echo '<div class = "info_name_category_name">'.$language['main_life'].':</div><div class = "info_name_category">'.$language['improving_world'].'</div>';
+									else if ($user['main_life'] == '7') echo '<div class = "info_name_category_name">'.$language['main_life'].':</div><div class = "info_name_category">'.$language['personal_development'].'</div>';
+									else if ($user['main_life'] == '8') echo '<div class = "info_name_category_name">'.$language['main_life'].':</div><div class = "info_name_category">'.$language['beauty_art'].'</div>';
+									else if ($user['main_life'] == '9') echo '<div class = "info_name_category_name">'.$language['main_life'].':</div><div class = "info_name_category">'.$language['fame_influence'].'</div>';
+										 
+									if ($user['main_people'] == '2') echo '<div class = "info_name_category_name">'.$language['main_people'].':</div><div class = "info_name_category">'.$language['intellect_creativity'].'</div>';
+									else if ($user['main_people'] == '3') echo '<div class = "info_name_category_name">'.$language['main_people'].':</div><div class = "info_name_category">'.$language['kindness_honesty'].'</div>';
+									else if ($user['main_people'] == '4') echo '<div class = "info_name_category_name">'.$language['main_people'].':</div><div class = "info_name_category">'.$language['health_beauty'].'</div>';
+									else if ($user['main_people'] == '5') echo '<div class = "info_name_category_name">'.$language['main_people'].':</div><div class = "info_name_category">'.$language['wealth_power'].'</div>';
+									else if ($user['main_people'] == '6') echo '<div class = "info_name_category_name">'.$language['main_people'].':</div><div class = "info_name_category">'.$language['courage_persistence'].'</div>';
+									else if ($user['main_people'] == '7') echo '<div class = "info_name_category_name">'.$language['main_people'].':</div><div class = "info_name_category">'.$language['humor_love_life'].'</div>';
+
+									if ($user['attitude_smoking'] == '2') echo '<div class = "info_name_category_name">'.$language['attitude_smoking'].':</div><div class = "info_name_category">'.$language['very_negative'].'</div>';
+									else if ($user['attitude_smoking'] == '3') echo '<div class = "info_name_category_name">'.$language['attitude_smoking'].':</div><div class = "info_name_category">'.$language['negative'].'</div>';
+									else if ($user['attitude_smoking'] == '4') echo '<div class = "info_name_category_name">'.$language['attitude_smoking'].':</div><div class = "info_name_category">'.$language['compromisable'].'</div>';
+									else if ($user['attitude_smoking'] == '5') echo '<div class = "info_name_category_name">'.$language['attitude_smoking'].':</div><div class = "info_name_category">'.$language['neutral'].'</div>';
+									else if ($user['attitude_smoking'] == '6') echo '<div class = "info_name_category_name">'.$language['attitude_smoking'].':</div><div class = "info_name_category">'.$language['positive'].'</div>';
+
+									if ($user['attitude_alcohol'] == '2') echo '<div class = "info_name_category_name">'.$language['attitude_alcohol'].':</div><div class = "info_name_category">'.$language['very_negative'].'</div>';
+									else if ($user['attitude_alcohol'] == '3') echo '<div class = "info_name_category_name">'.$language['attitude_alcohol'].':</div><div class = "info_name_category">'.$language['negative'].'</div>';
+									else if ($user['attitude_alcohol'] == '4') echo '<div class = "info_name_category_name">'.$language['attitude_alcohol'].':</div><div class = "info_name_category">'.$language['compromisable'].'</div>';
+									else if ($user['attitude_alcohol'] == '5') echo '<div class = "info_name_category_name">'.$language['attitude_alcohol'].':</div><div class = "info_name_category">'.$language['neutral'].'</div>';
+									else if ($user['attitude_alcohol'] == '6') echo '<div class = "info_name_category_name">'.$language['attitude_alcohol'].':</div><div class = "info_name_category">'.$language['positive'].'</div>';
+									
+									if ($user['inspire'] != '') echo '<div class = "info_name_category_name">'.$language['inspire'].':</div><div class = "info_name_category">'.$user['inspire'].'</div>';
+								?>
+
+							</div></div></div><!-- Информация о пользователе -->
+
+				<?php
+
+				if ($login && $password)
+				{
+					echo '
+					<div class = "content_add_news margin_15">
+						<div class = "who_div_left"><img class = "icon_user_add_news" src = "../img/users/camera_50.jpg"></div>
+
+						<div id = "news_text" class = "content_add_news_text" contenteditable = "true" role = "textbox" aria-multiline = "true" data-text = "Хотите чем то поделится ?"></div>
+
+						<div class = "content_add_news_block_send">
+							<button onclick = "add_news()" class = "button_send_news button_active_on">Отправить</button>
+
+							<div class = "icon_function_add_news"><div onclick = ""><img title = "Фотография" src = "../img/photo-camera.svg"></div></div>
+							<div class = "icon_function_add_news"><div onclick = ""><img title = "Видео" src = "../img/video-player.svg"></div></div>
+							<div class = "icon_function_add_news"><div onclick = ""><img title = "Музыка" src = "../img/audio-music.svg"></div></div>
+						</div></div> <!-- Добавление нового поста от имени пользователя -->
+					';
+				}
+
+				?>
+
+				<div  id = "news_opdate"></div> <!-- новости пользователя или его друзей, групп -->
+			</div>
+
+			<div class = "wrap_sitebar_user">
+				<div class = "wrap_block_page_user page_block">
+					<img class = "avatar_in_block_photo" src = "../img/users/camera_200.jpg">
+					<?php
+
+					if (!$login && !$password)
+					{
+						echo '<a href = "/">Зарегистрируйтесь или войдите</a>';
+					}else
+					{
+						echo '<button onclick = "'."header('edit')".'" class="button_in_block_photo button_active_on">Редактировать</button>';
+					}
+
+					?>
+				</div> <!-- Аватар пользователя -->
+				<!-- <div class = "wrap_block_page_user page_block"></div> --> <!-- Блок друзей -->
+				<!-- <div class = "wrap_block_page_user page_block"></div> --> <!-- Блок групп -->
+				<!-- <div class = "wrap_block_page_user page_block"></div> --> <!-- Блок Фотографий -->
+				<!-- <div class = "wrap_block_page_user page_block"></div> --> <!-- Блок Музыки -->
+				<!-- <div class = "wrap_block_page_user page_block"></div> --> <!-- Блок Подарков -->
+				<!-- <div class = "wrap_block_page_user page_block"></div> --> <!-- Блок Водеоролики -->
+				<!-- <div class = "wrap_block_page_user page_block"></div> --> <!-- Блок Подписок -->
+				<!-- <div class = "wrap_block_page_user page_block"></div> --> <!-- Блок Игр -->
+				<!-- <div class = "wrap_block_page_user page_block"></div> --> <!-- Блок Допументов -->
+				<!-- <div class = "wrap_block_page_user page_block"></div> --> <!-- Блок Закладок --></div>
+
+		</div>
+	</div>
+
+<!-- <div class = "border_block">
+<div id  = "block" class = "moving_block" style="border: 1px solid #000; cursor: move; position: absolute;"></div>
+</div> -->
+
+<script type="text/javascript">
+	
+	update('news.php', 'news_opdate');
+
+	function reedit(text)
+	{
+		var form = new FormData();
+
+		var text_div = document.getElementById(text + '_edit_text').innerHTML;
+		form.append("id", text);
+		form.append("text", text_div);
+
+		var xhr = new XMLHttpRequest();
+		xhr.open("POST", '../ajax/reedit.php', true);
+		xhr.send(form);
+
+		xhr.onreadystatechange = function() {
+			update('news.php', 'news_opdate');
+		}
+	}
+
+	function edit_news(id)
+	{
+		document.getElementById(id).style.display = "none";
+		document.getElementById(id + '_edit').style.display = "block";
+	}
+	function not_edit_news(id)
+	{
+		document.getElementById(id).style.display = "block";
+		document.getElementById(id + '_edit').style.display = "none";
+	}
+
+	function delete_news(id)
+	{
+		var form = new FormData();
+
+		form.append("id", id);
+
+		var xhr = new XMLHttpRequest();
+		xhr.open("POST", '../ajax/delete_news.php', true);
+		xhr.send(form);
+
+		xhr.onreadystatechange = function() {
+			update('news.php', 'news_opdate');
+		}
+	}
+
+	function add_news()
+	{
+		var form = new FormData();
+
+		var text = document.getElementById('news_text').innerHTML;
+		form.append("text", text);
+
+		document.getElementById('news_text').innerHTML = '';
+
+		var xhr = new XMLHttpRequest();
+		xhr.open("POST", '../ajax/add_news.php', true);
+		xhr.send(form);
+
+		xhr.onreadystatechange = function() {
+			update('news.php', 'news_opdate');
+		}
+	}
+
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--   /* Определяем тип браузера */
+  var ie = 0;
+  var op = 0;
+  var ff = 0;
+  var browser = navigator.userAgent;
+
+if (browser.indexOf("Opera") != -1) op = 1;
+else 
+{
+	if (browser.indexOf("MSIE") != -1) ie = 1;
+    else
+    {
+      if (browser.indexOf("Firefox") != -1) ff = 1;
+    }
+}
+  var block = document.getElementById("block");
+  delta_x = 0;
+  delta_y = 0;
+
+  /* Ставим обработчики событий на нажатие и отпускание клавиши мыши */
+  block.onmousedown = saveXY;
+  if (op || ff) {
+    block.addEventListener("onmousedown", saveXY, false);
+  }
+  document.onmouseup = clearXY;
+  /* При нажатии кнопки мыши попадаем в эту функцию */
+  function saveXY(obj_event) {
+    /* Получаем текущие координаты курсора */
+    if (obj_event) {
+      x = obj_event.pageX;
+      y = obj_event.pageY;
+    }
+    else {
+      x = window.event.clientX;
+      y = window.event.clientY;
+      if (ie) {
+        y -= 2;
+        x -= 2;
+      }
+    }
+    /* Узнаём текущие координаты блока */
+    x_block = block.offsetLeft;
+    y_block = block.offsetTop;
+    /* Узнаём смещение */
+    delta_x = x_block - x;
+    delta_y = y_block - y;
+    /* При движении курсора устанавливаем вызов функции moveWindow */
+    document.onmousemove = moveBlock;
+    if (op || ff)
+      document.addEventListener("onmousemove", moveBlock, false);
+  }
+  function clearXY() {
+    document.onmousemove = null; // При отпускании мыши убираем обработку события движения мыши
+  }
+  function moveBlock(obj_event) {
+    /* Получаем новые координаты курсора мыши */
+    if (obj_event) {
+      x = obj_event.pageX;
+      y = obj_event.pageY;
+    }
+    else {
+      x = window.event.clientX;
+      y = window.event.clientY;
+      if (ie) {
+        y -= 2;
+        x -= 2;
+      }
+    }
+    /* Вычисляем новые координаты блока */
+    new_x = delta_x + x;
+    new_y = delta_y + y;
+    block.style.top = new_y + "px";
+    block.style.left = new_x + "px";
+  } -->
+
+</body>
+</htmL>

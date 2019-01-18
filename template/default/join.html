@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang = "EN">
+<head>
+	<title><?php echo $language['title_join']; ?></title>
+	<meta charset = "UTF-8">
+	<link rel = "stylesheet" type = "text/css" href = "../template/default/css/style.css">
+	<link rel = "stylesheet" type = "text/css" href = "../template/default/css/join.css">
+	<script type = "text/javascript" src = "../template/default/javascript/script.js"></script>
+	<meta name = "viewport" content = "width=device-width">
+</head>
+<body>
+
+	<div class = "wrapper">
+
+		<div class = "content">
+
+			<div class = "wrap_input"><input id = "login" class = "big_text" type = "login" placeholder = "<?php echo $language['login']; ?>"></div>
+			<div class = "wrap_input"><input id = "password" class = "big_text" type = "password" placeholder = "<?php echo $language['password']; ?>"></div>
+			<span class = "buttton_header_or_check button_active" onclick = "come_up('login', 'password')"><?php echo $language['log_in']; ?></span>
+			<a class = "link_header" href = ""><?php echo $language['forgot_password']; ?></a>
+
+		</div>
+
+	</div>
+
+</body>
+</html>
+
+<?php
+
+	include './template/default/notify.html';
+?>
+
+<script type="text/javascript">
+
+function come_up(login, password)
+{
+	var form = new FormData();
+
+	form.append("login", document.getElementById(login).value);
+	form.append("password", document.getElementById(password).value);
+
+	var xhr = new XMLHttpRequest();
+	xhr.open("POST", '../ajax/join.php', true);
+	xhr.send(form);
+
+	xhr.onreadystatechange = function() {
+		console.log(xhr.responseText);
+		document.getElementById("test").innerHTML = xhr.responseText;
+
+		var test = document.getElementById('test').value;
+		
+		if (test != '')
+		{
+			div = document.querySelector('div.closes');
+			div.style.display = "block";
+		}
+
+		if (xhr.responseText == 'header')
+		{
+			div.style.display = "none";
+			document.location.href = "/news";
+		}
+	}
+
+}
+
+function close_message() {
+        div = document.querySelector('div.closes');
+		div.style.display = div.style.display == "none" ? "none" : "none";
+}
+
+</script>

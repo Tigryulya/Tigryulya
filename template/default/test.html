@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang = "EN">
+<head>
+	<meta charset = "UTF-8">
+	<title></title>
+	<link rel = "stylesheet" type = "text/css" href = "../template/default/css/style.css">
+	<link rel = "stylesheet" type = "text/css" href = "../template/default/css/guest.css">
+	<script type = "text/javascript" src = "../template/default/javascript/script.js"></script>
+</head>
+<body>
+	<div class = "wrapper">
+
+			<div class = "wrapper_content">
+
+				<div class = "wrapper_content_sitebar">
+					<div class = "wrap_photo page_block">
+						<div class = "wrap_image_user_foto">
+							<img class = "image_user_foto" src = "../img/users/camera_200.jpg">
+						</div>
+
+						<div class = "wrap_button_click_function">
+							<button onclick = "header('/edit')" class = "button_click_edit_function button_active_on">Редактировать</button>
+						</div>
+					</div>
+
+					<div class = "wrap_friends page_block">
+						<div class = "friends_name">Друзья</div>
+
+						<div class = "all_my_friends">
+
+							<div class = "my_frind">
+								<div class = "wrap_my_frind_icon"><img class = "my_frind_icon" src = "../img/users/camera_50.jpg"></div>
+								<div class = "my_frind_name">Алина</div>
+							</div>
+
+							<div class = "my_frind">
+								<div class = "wrap_my_frind_icon"><img class = "my_frind_icon" src = "../img/users/camera_50.jpg"></div>
+								<div class = "my_frind_name">Серёжа</div>
+							</div>
+
+							<div class = "my_frind">
+								<div class = "wrap_my_frind_icon"><img class = "my_frind_icon" src = "../img/users/camera_50.jpg"></div>
+								<div class = "my_frind_name">Ваня</div>
+							</div>
+
+							<div class = "my_frind">
+								<div class = "wrap_my_frind_icon"><img class = "my_frind_icon" src = "../img/users/camera_50.jpg"></div>
+								<div class = "my_frind_name">Максим</div>
+							</div>
+
+							<div class = "my_frind">
+								<div class = "wrap_my_frind_icon"><img class = "my_frind_icon" src = "../img/users/camera_50.jpg"></div>
+								<div class = "my_frind_name">Кристина</div>
+							</div>
+
+							<div class = "my_frind">
+								<div class = "wrap_my_frind_icon"><img class = "my_frind_icon" src = "../img/users/camera_50.jpg"></div>
+								<div class = "my_frind_name">Алёна</div>
+							</div>
+
+							<div class = "my_frind">
+								<div class = "wrap_my_frind_icon"><img class = "my_frind_icon" src = "../img/users/camera_50.jpg"></div>
+								<div class = "my_frind_name">Шамиль</div>
+							</div>
+
+							<div class = "my_frind">
+								<div class = "wrap_my_frind_icon"><img class = "my_frind_icon" src = "../img/users/camera_50.jpg"></div>
+								<div class = "my_frind_name">Шамиль</div>
+							</div>
+
+							<div class = "my_frind">
+								<div class = "wrap_my_frind_icon"><img class = "my_frind_icon" src = "../img/users/camera_50.jpg"></div>
+								<div class = "my_frind_name">Миша</div>
+							</div>
+
+						</div>
+					</div>
+
+					<div class = "wrap_group page_block"></div>
+				</div>
+
+
+
+
+				<div class = "wrap_content page_block">
+
+					<div class = "wrap_user_status">online</div>
+
+					<div class = "wrap_user_name"><?php echo $user['name'] . ' ' . $user['surname']; ?></div>
+
+					<div class = "wrap_content_info_block"><!-- <div class = "wrap_info_title"></div> -->
+						<div class = "wrap_info_name"><?php echo $language['family']; ?>:</div><div class = "wrap_info_alert"><?php echo $language['In_love']; ?></div>
+						<div class = "wrap_info_name"><?php echo $language['birthday']; ?>:</div><div class = "wrap_info_alert"><?php echo $user['birth_day'];?>
+
+						<?php
+
+						if ($user['birth_month'] == '1') echo $language['January']; 
+						else if ($user['birth_month'] == '2') echo $language['February']; 
+						else if ($user['birth_month'] == '3') echo $language['Martha']; 
+						else if ($user['birth_month'] == '4') echo $language['April']; 
+						else if ($user['birth_month'] == '5') echo $language['May']; 
+						else if ($user['birth_month'] == '6') echo $language['June']; 
+						else if ($user['birth_month'] == '7') echo $language['July']; 
+						else if ($user['birth_month'] == '8') echo $language['Augusta']; 
+						else if ($user['birth_month'] == '9') echo $language['September']; 
+						else if ($user['birth_month'] == '10') echo $language['October']; 
+						else if ($user['birth_month'] == '11') echo $language['November']; 
+						else if ($user['birth_month'] == '12') echo $language['December'];
+
+						?>
+
+						<?php echo $user['birth_year']; ?></div>
+
+						<div class = "wrap_info_name"><?php echo $language['hometown']; ?>:</div><div class = "wrap_info_alert"><?php echo $user['hometown']; ?></div>
+						<div class = "wrap_info_name"><?php echo $language['languages']; ?>:</div><div class = "wrap_info_alert"><?php echo $user['languages']; ?></div>
+						<button onclick = "user_function_info()" class = "user_function_info">Показать/Скрыть дополнительную информацию</button>
+					</div>
+
+					<div id = "wrap_content_info_block_vanish" class = "wrap_content_info_block_vanish">
+
+						<div class = "wrap_content_info_block"><div class = "wrap_info_title"><?php echo $language['contact']; ?></div>
+							<?php
+								if ($user['mobile'] != '') echo '<div class = "wrap_info_name">'.$language['phone'].':</div><div class = "wrap_info_alert">'.$user['mobile'].'</div>';
+								if ($user['add_phone'] != '') echo '<div class = "wrap_info_name">'.$language['add_phone'].':</div><div class = "wrap_info_alert">'.$user['add_phone'].'</div>';
+								if ($user['skype'] != '') echo '<div class = "wrap_info_name">'.$language['skype'].':</div><div class = "wrap_info_alert">'.$user['skype'].'</div>';
+								if ($user['discord'] != '') echo '<div class = "wrap_info_name">'.$language['discord'].':</div><div class = "wrap_info_alert">'.$user['discord'].'</div>';
+								if ($user['website'] != '') echo '<div class = "wrap_info_name">'.$language['website'].':</div><div class = "wrap_info_alert">'.$user['website'].'</div>';
+								if ($user['email_info'] != '') echo '<div class = "wrap_info_name">'.$language['email'].':</div><div class = "wrap_info_alert">'.$user['email_info'].'</div>';
+							?>
+						</div>
+
+						<div class = "wrap_content_info_block"><div class = "wrap_info_title"><?php echo $language['personal_inform']; ?></div>
+							<?php
+								if ($user['activity'] != '') echo '<div class = "wrap_info_name">'.$language['activity'].':</div><div class = "wrap_info_alert">'.$user['activity'].'</div>';
+								if ($user['interests'] != '') echo '<div class = "wrap_info_name">'.$language['interests'].':</div><div class = "wrap_info_alert">'.$user['interests'].'</div>';
+								if ($user['favorite_music'] != '') echo '<div class = "wrap_info_name">'.$language['favorite_music'].':</div><div class = "wrap_info_alert">'.$user['favorite_music'].'</div>';
+								if ($user['favorite_movies'] != '') echo '<div class = "wrap_info_name">'.$language['favorite_movies'].':</div><div class = "wrap_info_alert">'.$user['favorite_movies'].'</div>';
+								if ($user['favorite_tv'] != '') echo '<div class = "wrap_info_name">'.$language['favorite_tv'].':</div><div class = "wrap_info_alert">'.$user['favorite_tv'].'</div>';
+								if ($user['favorite_books'] != '') echo '<div class = "wrap_info_name">'.$language['favorite_books'].':</div><div class = "wrap_info_alert">'.$user['favorite_books'].'</div>';
+								if ($user['favorite_games'] != '') echo '<div class = "wrap_info_name">'.$language['favorite_games'].':</div><div class = "wrap_info_alert">'.$user['favorite_games'].'</div>';
+								if ($user['favorite_quotes'] != '') echo '<div class = "wrap_info_name">'.$language['favorite_quotes'].':</div><div class = "wrap_info_alert">'.$user['favorite_quotes'].'</div>';
+								if ($user['about_me'] != '') echo '<div class = "wrap_info_name">'.$language['about_me'].':</div><div class = "wrap_info_alert">'.$user['about_me'].'</div>';
+							?>
+						</div>
+
+						<div class = "wrap_content_info_block"><div class = "wrap_info_title"><?php echo $language['personal']; ?></div>
+							<!-- political_preferences -->
+								<?php
+									if ($user['political_preferences'] == '2') echo '<div class = "wrap_info_name">'.$language['political_preferences'].':</div><div class = "wrap_info_alert">'.$language['apathetic'].'</div>';
+									else if ($user['political_preferences'] == '3') echo '<div class = "wrap_info_name">'.$language['political_preferences'].':</div><div class = "wrap_info_alert">'.$language['communist'].'</div>';
+									else if ($user['political_preferences'] == '4') echo '<div class = "wrap_info_name">'.$language['political_preferences'].':</div><div class = "wrap_info_alert">'.$language['socialist'].'</div>';
+									else if ($user['political_preferences'] == '5') echo '<div class = "wrap_info_name">'.$language['political_preferences'].':</div><div class = "wrap_info_alert">'.$language['moderate'].'</div>';
+									else if ($user['political_preferences'] == '6') echo '<div class = "wrap_info_name">'.$language['political_preferences'].':</div><div class = "wrap_info_alert">'.$language['liberal'].'</div>';
+									else if ($user['political_preferences'] == '7') echo '<div class = "wrap_info_name">'.$language['political_preferences'].':</div><div class = "wrap_info_alert">'.$language['conservative'].'</div>';
+									else if ($user['political_preferences'] == '8') echo '<div class = "wrap_info_name">'.$language['political_preferences'].':</div><div class = "wrap_info_alert">'.$language['monarchist'].'</div>';
+									else if ($user['political_preferences'] == '9') echo '<div class = "wrap_info_name">'.$language['political_preferences'].':</div><div class = "wrap_info_alert">'.$language['ultraconservative'].'</div>';
+									else if ($user['political_preferences'] == '10') echo '<div class = "wrap_info_name">'.$language['political_preferences'].':</div><div class = "wrap_info_alert">'.$language['libertarian'].'</div>';
+								?>
+
+							<!-- worldview -->
+								<?php
+									if ($user['worldview'] == '2') echo '<div class = "wrap_info_name">'.$language['worldview'].':</div><div class = "wrap_info_alert">'.$language['judaism'].'</div>';
+									else if ($user['worldview'] == '3') echo '<div class = "wrap_info_name">'.$language['worldview'].':</div><div class = "wrap_info_alert">'.$language['orthodoxy'].'</div>';
+									else if ($user['worldview'] == '4') echo '<div class = "wrap_info_name">'.$language['worldview'].':</div><div class = "wrap_info_alert">'.$language['catholicism'].'</div>';
+									else if ($user['worldview'] == '5') echo '<div class = "wrap_info_name">'.$language['worldview'].':</div><div class = "wrap_info_alert">'.$language['protestantism'].'</div>';
+									else if ($user['worldview'] == '6') echo '<div class = "wrap_info_name">'.$language['worldview'].':</div><div class = "wrap_info_alert">'.$language['islam'].'</div>';
+									else if ($user['worldview'] == '7') echo '<div class = "wrap_info_name">'.$language['worldview'].':</div><div class = "wrap_info_alert">'.$language['buddhism'].'</div>';
+									else if ($user['worldview'] == '8') echo '<div class = "wrap_info_name">'.$language['worldview'].':</div><div class = "wrap_info_alert">'.$language['confucianism'].'</div>';
+									else if ($user['worldview'] == '9') echo '<div class = "wrap_info_name">'.$language['worldview'].':</div><div class = "wrap_info_alert">'.$language['secular_humanism'].'</div>';
+									else if ($user['worldview'] == '10') echo '<div class = "wrap_info_name">'.$language['worldview'].':</div><div class = "wrap_info_alert">'.$language['pastafarianism'].'</div>';
+								?>
+
+							<!--  -->
+								<?php
+									if ($user['main_life'] == '2') echo '<div class = "wrap_info_name">'.$language['main_life'].':</div><div class = "wrap_info_alert">'.$language['family_children'].'</div>';
+									else if ($user['main_life'] == '3') echo '<div class = "wrap_info_name">'.$language['main_life'].':</div><div class = "wrap_info_alert">'.$language['career_money'].'</div>';
+									else if ($user['main_life'] == '4') echo '<div class = "wrap_info_name">'.$language['main_life'].':</div><div class = "wrap_info_alert">'.$language['entertainment_leisure'].'</div>';
+									else if ($user['main_life'] == '5') echo '<div class = "wrap_info_name">'.$language['main_life'].':</div><div class = "wrap_info_alert">'.$language['science_research'].'</div>';
+									else if ($user['main_life'] == '6') echo '<div class = "wrap_info_name">'.$language['main_life'].':</div><div class = "wrap_info_alert">'.$language['improving_world'].'</div>';
+									else if ($user['main_life'] == '7') echo '<div class = "wrap_info_name">'.$language['main_life'].':</div><div class = "wrap_info_alert">'.$language['personal_development'].'</div>';
+									else if ($user['main_life'] == '8') echo '<div class = "wrap_info_name">'.$language['main_life'].':</div><div class = "wrap_info_alert">'.$language['beauty_art'].'</div>';
+									else if ($user['main_life'] == '9') echo '<div class = "wrap_info_name">'.$language['main_life'].':</div><div class = "wrap_info_alert">'.$language['fame_influence'].'</div>';
+								?>
+
+							<!--  -->
+								<?php
+									if ($user['main_people'] == '2') echo '<div class = "wrap_info_name">'.$language['main_people'].':</div><div class = "wrap_info_alert">'.$language['intellect_creativity'].'</div>';
+									else if ($user['main_people'] == '3') echo '<div class = "wrap_info_name">'.$language['main_people'].':</div><div class = "wrap_info_alert">'.$language['kindness_honesty'].'</div>';
+									else if ($user['main_people'] == '4') echo '<div class = "wrap_info_name">'.$language['main_people'].':</div><div class = "wrap_info_alert">'.$language['health_beauty'].'</div>';
+									else if ($user['main_people'] == '5') echo '<div class = "wrap_info_name">'.$language['main_people'].':</div><div class = "wrap_info_alert">'.$language['wealth_power'].'</div>';
+									else if ($user['main_people'] == '6') echo '<div class = "wrap_info_name">'.$language['main_people'].':</div><div class = "wrap_info_alert">'.$language['courage_persistence'].'</div>';
+									else if ($user['main_people'] == '7') echo '<div class = "wrap_info_name">'.$language['main_people'].':</div><div class = "wrap_info_alert">'.$language['humor_love_life'].'</div>';
+								?>
+
+							<!--  -->
+								<?php
+									if ($user['attitude_smoking'] == '2') echo '<div class = "wrap_info_name">'.$language['attitude_smoking'].':</div><div class = "wrap_info_alert">'.$language['very_negative'].'</div>';
+									else if ($user['attitude_smoking'] == '3') echo '<div class = "wrap_info_name">'.$language['attitude_smoking'].':</div><div class = "wrap_info_alert">'.$language['negative'].'</div>';
+									else if ($user['attitude_smoking'] == '4') echo '<div class = "wrap_info_name">'.$language['attitude_smoking'].':</div><div class = "wrap_info_alert">'.$language['compromisable'].'</div>';
+									else if ($user['attitude_smoking'] == '5') echo '<div class = "wrap_info_name">'.$language['attitude_smoking'].':</div><div class = "wrap_info_alert">'.$language['neutral'].'</div>';
+									else if ($user['attitude_smoking'] == '6') echo '<div class = "wrap_info_name">'.$language['attitude_smoking'].':</div><div class = "wrap_info_alert">'.$language['positive'].'</div>';
+								?>
+
+							<!--  -->
+								<?php
+									if ($user['attitude_alcohol'] == '2') echo '<div class = "wrap_info_name">'.$language['attitude_alcohol'].':</div><div class = "wrap_info_alert">'.$language['very_negative'].'</div>';
+									else if ($user['attitude_alcohol'] == '3') echo '<div class = "wrap_info_name">'.$language['attitude_alcohol'].':</div><div class = "wrap_info_alert">'.$language['negative'].'</div>';
+									else if ($user['attitude_alcohol'] == '4') echo '<div class = "wrap_info_name">'.$language['attitude_alcohol'].':</div><div class = "wrap_info_alert">'.$language['compromisable'].'</div>';
+									else if ($user['attitude_alcohol'] == '5') echo '<div class = "wrap_info_name">'.$language['attitude_alcohol'].':</div><div class = "wrap_info_alert">'.$language['neutral'].'</div>';
+									else if ($user['attitude_smoking'] == '6') echo '<div class = "wrap_info_name">'.$language['attitude_smoking'].':</div><div class = "wrap_info_alert">'.$language['positive'].'</div>';
+								?>
+
+							<!--  -->
+								<?php
+									if ($user['inspire'] != '') echo '<div class = "wrap_info_name">'.$language['inspire'].':</div><div class = "wrap_info_alert">'.$user['inspire'].'</div>';
+								?>
+
+
+
+
+						</div>
+
+					</div></div>
+
+
+
+				<div class = "wrap_add_news page_block" id = "button_content">
+
+					<div  id = "w1" class = "wrap_mine_icon_user">
+						<img id = "w2" class = "mine_icon_user" src = "../img/users/camera_50.jpg">
+					</div>
+
+					<div  id = "w3" class = "wrap_text_news" contenteditable = "true" role = "textbox" aria-multiline = "true" data-text = "Чеи вы хотите поделится с друзьями ?"></div>
+
+					<div class = "wrap_add_news_bottom" style = "display: none;" id = "wrap_add_mod">
+
+						<div id = "w4" class = "wrap_block_icon_function">
+							<div id = "w5" class = "wrap_icon_function"><img id = "w8" title = "Photo" class = "icon_function" src = "../img/photo.png"></div>
+							<div id = "w6" class = "wrap_icon_function"><img id = "w9" title = "Video" class = "icon_function" src = "../img/video.png"></div>
+							<div id = "w7" class = "wrap_icon_function"><img id = "w10" title = "Audio" class = "icon_function" src = "../img/audio.svg"></div>
+						</div>
+
+						<div id = "w11" class = "wrap_button_click_function">
+							<button onclick = "send_news()" id = "w12" class = "button_click_function button_active_on">Отправить</button>
+						</div>
+					</div></div>
+
+
+
+				<div class = "wrap_news page_block">
+
+					<div class = "wrap_cotegiria">
+						<div class = "wrap_choice">
+							<div class = "wrap_post active_cotegoria">Все посты</div>
+							<div class = "wrap_post">Мои посты</div>
+						</div>
+					</div>
+
+					<div class = "wrap_noy_news">
+
+<!-- 						<div class = "wrap_img_noy_news">
+							<img class = "img_noy_news" src = "../img/dog/42.png">
+						</div>
+						<div class = "wrap_noy_news_name">На данный момент здесь ничего нет.</div> -->
+
+						<?php
+
+						$news_query = mysqli_query($Connection, "SELECT * FROM `news`");
+
+						while ($news = mysqli_fetch_assoc($news_query))
+						{
+							$text = preg_replace("#\r?\n#", "<br>", $news['text']);
+							echo '
+
+								<div class = "wrappr_news page_block">
+									
+									<div class = "content_header_top">
+
+										<div class = "top_block_img">
+											<a href = ""><img class = "top_img not_copy" src = "../img/users/camera_50.jpg"></a>
+										</div>
+
+										<div class = "block_top_name"><a class = "top_name" href = "">'.$news['name'].'</a></div>
+
+										<div class = "top_date">'.$news['date'].'</div>
+										
+									</div>
+
+
+
+									<div class = "wrapper_content_news">
+
+										<div class = "wall_post_text">'. $text .'</div>
+										<div class = ""><img class = "not_copy" src = "'.$news['img'].'"></div>
+
+									</div>
+
+
+
+									<div class = "content_header_bottom">
+
+										<div class = "wrap_bottom_assessment">
+
+											<div class = "bottom_assessment"><img class = "icon_header_bootom not_copy" src = "../img/like.png"><div class = "num_assessmant">0</div></div>
+											<div class = "bottom_assessment"><img class = "icon_header_bootom not_copy" src = "../img/dislike.png"><div class = "num_assessmant">0</div></div>
+
+										</div>
+
+										<div class = "wrap_look">
+											<div class = ""><img class = "icon_header_bootom not_copy" src = "../img/look.svg"><div class = "num_assessmant">0</div></div>
+										</div>
+									</div>
+
+								</div>
+
+							';
+						}
+
+						?>
+					</div>
+				</div>
+
+			</div>
+
+	</div>
+
+<?php
+
+	include './template/default/notify.html';
+
+?>
+
+<script type="text/javascript">
+
+var buttons =  document.getElementById('button_content');
+var contents = document.getElementById('wrap_add_mod');
+
+var w1 = document.getElementById('w1'), w2 = document.getElementById('w2'), w3 = document.getElementById('w3'), w4 = document.getElementById('w4'), w5 = document.getElementById('w6'), w6 = document.getElementById('w6'), w7 = document.getElementById('w7'), w8 = document.getElementById('w8'), w9 = document.getElementById('w9');
+buttons.onclick = function () {
+	contents.style.display = "block";
+}
+
+window.onclick = function(eventw) {
+	if (eventw.target != contents && eventw.target != buttons && eventw.target != w1 && eventw.target != w2 && eventw.target != w3 && eventw.target != w4 && eventw.target != w5 && eventw.target != w6 && eventw.target != w7 && eventw.target != w8 && eventw.target != w9  && eventw.target != w10 && eventw.target != w11 && eventw.target != w12) {
+		if(document.getElementById('w3').innerHTML === "") {
+			contents.style.display = "none";
+		}
+	}
+}
+
+function send_news()
+{
+	var form = new FormData();
+	var text = document.getElementById('w3').innerHTML;
+
+	form.append("text", text);
+
+	var xhr = new XMLHttpRequest();
+	xhr.open("POST", '../ajax/add_news.php', true);
+	xhr.send(form);
+
+	alert(text);
+
+	xhr.onreadystatechange = function() {
+		console.log(xhr.responseText);
+		document.getElementById("test").innerHTML = xhr.responseText;
+
+		if (xhr.responseText == 'OK')
+		{
+			div = document.querySelector('div.closes');
+			div.style.display = "none";
+		}else
+		{
+			div = document.querySelector('div.closes');
+			div.style.display = "block";
+		}
+	}
+}
+
+</script>
+
+</body>
+</html>

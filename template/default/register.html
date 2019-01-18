@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang = "EN">
+<head>
+	<meta charset = "UTF-8">
+	<title><?php echo $language['title_register']; ?></title>
+	<link rel = "stylesheet" type = "text/css" href = "../template/default/css/style.css">
+	<link rel = "stylesheet" type = "text/css" href = "../template/default/css/register.css">
+	<script type = "text/javascript" src = "../template/default/javascript/script.js"></script>
+</head>
+<body>
+	<div class = "wrapper">
+		<div style = "height: 300px; margin: 100px 0;" class = "content">
+
+			<div class = "wrap_input"><input id = "login" placeholder = "<?php echo $language['login']; ?>" class = "big_text"></div>
+			<div class = "wrap_input"><input id = "name" placeholder = "<?php echo $language['name']; ?>" class = "big_text"></div>
+			<div class = "wrap_input"><input id = "surname" placeholder = "<?php echo $language['surname']; ?>" class = "big_text"></div>
+			<div class = "wrap_input"><input id = "email" placeholder = "<?php echo $language['email']; ?>" class = "big_text"></div>
+
+			<div class = "wrap_select_option_div">
+				<div class = "wrap_select_option">
+										<select id = "day_date">
+											<option selected value = "day"><?php echo $language['Day']; ?></option>
+											<option value = "1">1</option>
+											<option value = "2">2</option>
+											<option value = "3">3</option>
+											<option value = "4">4</option>
+											<option value = "5">5</option>
+											<option value = "6">6</option>
+											<option value = "7">7</option>
+											<option value = "8">8</option>
+											<option value = "9">9</option>
+											<option value = "10">10</option>
+											<option value = "11">11</option>
+											<option value = "12">12</option>
+											<option value = "13">13</option>
+											<option value = "14">14</option>
+											<option value = "15">15</option>
+											<option value = "16">16</option>
+											<option value = "17">17</option>
+											<option value = "18">18</option>
+											<option value = "19">19</option>
+											<option value = "20">20</option>
+											<option value = "21">21</option>
+											<option value = "22">22</option>
+											<option value = "23">23</option>
+											<option value = "24">24</option>
+											<option value = "25">25</option>
+											<option value = "26">26</option>
+											<option value = "27">27</option>
+											<option value = "28">28</option>
+											<option value = "29">29</option>
+											<option value = "30">30</option>
+											<option value = "31">31</option>
+										</select>
+
+										<select id = "month_date">
+											<option selected value = "month" ><?php echo $language['Month']; ?></option>
+											<option value = "January"><?php echo $language['January']; ?></option>
+											<option value = "February"><?php echo $language['February']; ?></option>
+											<option value = "Martha"><?php echo $language['Martha']; ?></option>
+											<option value = "April"><?php echo $language['April']; ?></option>
+											<option value = "May"><?php echo $language['May']; ?></option>
+											<option value = "June"><?php echo $language['June']; ?></option>
+											<option value = "July"><?php echo $language['July']; ?></option>
+											<option value = "Augusta"><?php echo $language['Augusta']; ?></option>
+											<option value = "September"><?php echo $language['September']; ?></option>
+											<option value = "October"><?php echo $language['October']; ?></option>
+											<option value = "November"><?php echo $language['November']; ?></option>
+											<option value = "December"><?php echo $language['December']; ?></option>
+										</select>
+
+										<select id = "year_date">
+											<option selected value = "year"><?php echo $language['Year']; ?></option>
+											<option value = "2018">2018</option>
+											<option value = "2017">2017</option>
+											<option value = "2016">2016</option>
+											<option value = "2015">2015</option>
+											<option value = "2014">2014</option>
+											<option value = "2013">2013</option>
+											<option value = "2012">2012</option>
+											<option value = "2011">2011</option>
+											<option value = "2010">2010</option>
+											<option value = "2009">2009</option>
+											<option value = "2008">2008</option>
+											<option value = "2007">2007</option>
+											<option value = "2006">2006</option>
+											<option value = "2005">2005</option>
+											<option value = "2004">2004</option>
+											<option value = "2003">2003</option>
+											<option value = "2002">2002</option>
+											<option value = "2001">2001</option>
+											<option value = "2000">2000</option>
+										</select></div>
+			</div>
+
+			<div class = "wrap_sex_user">
+						<form id = "your_gender">
+							<input style = "display: none" type = "radio" id = "sex" name = "sex" value = "0" checked = "checked">
+
+							<div class = "wrap_input_radio_sex1_user gfdfsgfdxgg">
+								<input class = "user_sex_radio" type = "radio" id = "sex1" name = "sex" value = "1"><label for = "sex1" class = "name_sex_user"><?php echo $language['man']; ?></label>
+							</div>
+
+							<div class = "wrap_input_radio_sex2_user gfdfsgfdxgg">
+								<input class = "user_sex_radio" type = "radio" id = "sex2" name = "sex" value = "2"><label for = "sex2" class = "name_sex_user"><?php echo $language['woman']; ?></label>
+							</div>
+
+						</form></div>
+
+			<span style = "top: 5px;" class = "buttton_header_or_check button_active" onclick = "reg_up('login', 'name', 'surname', 'email', 'day_date', 'month_date', 'year_date')"><?php echo $language['continue_registration']; ?></span>
+				
+		</div>
+	</div>
+
+<?php
+
+	include './template/default/notify.html';
+
+?>
+
+<script type="text/javascript">
+
+
+
+function reg_up(login, name, surname, email, day, month, year)
+{
+	var form = new FormData();
+
+	form.append("login", document.getElementById(login).value);
+	form.append("name", document.getElementById(name).value);
+	form.append("surname", document.getElementById(surname).value);
+	form.append("email", document.getElementById(email).value);
+	form.append("day", document.getElementById(day).value);
+	form.append("month", document.getElementById(month).value);
+	form.append("year", document.getElementById(year).value);
+
+	form.append("sex", document.querySelector('input[name=sex]:checked', '#your_gender').value);
+
+	var xhr = new XMLHttpRequest();
+	xhr.open("POST", '../ajax/register.php', true);
+	xhr.send(form);
+
+	xhr.onreadystatechange = function() {
+		console.log(xhr.responseText);
+		document.getElementById("test").innerHTML = xhr.responseText;
+
+		if (xhr.responseText == 'OK')
+		{
+			document.location.href = "../register=verified";
+			div = document.querySelector('div.closes');
+			div.style.display = "none";
+		}else
+		{
+			div = document.querySelector('div.closes');
+			div.style.display = "block";
+		}
+	}
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,4 @@
+RewriteEngine on
+
+RewriteCond %{REQUEST_URI} !^.*\.(js|mp3|mp4|html|css|php|png|jpg|svg|exe|mkv|avi)$
+RewriteRule .* index.php

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang = "EN">
+<head>
+	<meta charset = "UTF-8">
+	<title></title>
+	<link rel = "stylesheet" type = "text/css" href = "../template/default/css/style.css">
+	<link rel = "stylesheet" type = "text/css" href = "../template/default/css/edit.css">
+	<script type = "text/javascript" src = "../template/default/javascript/script.js"></script>
+</head>
+<body>
+	<div class = "wrapper_border">
+		<div class = "wrapper_content page_block">
+
+			<div class = "wrapper_content_header">
+				<div class = "header_title"><?php echo $language['interests']; ?></div>
+			</div>
+
+			<div class = "wrap_function_border_bottom">
+
+				<div class = "pedit_row">
+
+					<div class = "label_name"><?php echo $language['activity']; ?>:</div>
+					<div id = "activity" class = "wrap_text_for_interests" contenteditable = "true" data-text = "<?php echo $language['noy_indicated']; ?>"><?php echo $edit['activity']; ?></div>
+				</div>
+
+				<div class = "pedit_row">
+
+					<div class = "label_name"><?php echo $language['interests']; ?>:</div>
+					<div id = "interests" class = "wrap_text_for_interests" contenteditable = "true" data-text = "<?php echo $language['noy_indicated']; ?>"><?php echo $edit['interests']; ?></div>
+				</div>
+
+				<div class = "pedit_row">
+
+					<div class = "label_name"><?php echo $language['favorite_music']; ?>:</div>
+					<div id = "favorite_music" class = "wrap_text_for_interests" contenteditable = "true" data-text = "<?php echo $language['noy_indicated']; ?>"><?php echo $edit['favorite_music']; ?></div>
+				</div>
+
+				<div class = "pedit_row">
+
+					<div class = "label_name"><?php echo $language['favorite_movies']; ?>:</div>
+					<div id = "favorite_movies" class = "wrap_text_for_interests" contenteditable = "true" data-text = "<?php echo $language['noy_indicated']; ?>"><?php echo $edit['favorite_movies']; ?></div>
+				</div>
+
+				<div class = "pedit_row">
+
+					<div class = "label_name"><?php echo $language['favorite_tv']; ?>:</div>
+					<div id = "favorite_tv" class = "wrap_text_for_interests" contenteditable = "true" data-text = "<?php echo $language['noy_indicated']; ?>"><?php echo $edit['favorite_tv']; ?></div>
+				</div>
+
+				<div class = "pedit_row">
+
+					<div class = "label_name"><?php echo $language['favorite_books']; ?>:</div>
+					<div id = "favorite_books" class = "wrap_text_for_interests" contenteditable = "true" data-text = "<?php echo $language['noy_indicated']; ?>"><?php echo $edit['favorite_books']; ?></div>
+				</div>
+
+				<div class = "pedit_row">
+
+					<div class = "label_name"><?php echo $language['favorite_games']; ?>:</div>
+					<div id = "favorite_games" class = "wrap_text_for_interests" contenteditable = "true" data-text = "<?php echo $language['noy_indicated']; ?>"><?php echo $edit['favorite_games']; ?></div>
+				</div>
+
+				<div class = "pedit_row">
+
+					<div class = "label_name"><?php echo $language['favorite_quotes']; ?>:</div>
+					<div id = "favorite_quotes" class = "wrap_text_for_interests" contenteditable = "true" data-text = "<?php echo $language['noy_indicated']; ?>"><?php echo $edit['favorite_quotes']; ?></div>
+				</div>
+
+				<div class = "pedit_row">
+
+					<div class = "label_name"><?php echo $language['about_me']; ?>:</div>
+					<div id = "about_me" class = "wrap_text_for_interests" contenteditable = "true" data-text = "<?php echo $language['noy_indicated']; ?>"><?php echo $edit['about_me']; ?></div>
+				</div>
+
+			<div class = "border_bottom"></div>
+
+			<div class = "wrap_edit_button_mine">
+				<button onclick = "edit_interests_opdate()" class = "edit_button_mine button_active_on"><?php echo $language['send']; ?></button>
+			</div>
+			
+			</div>
+
+		</div>
+
+		<div class = "wrapper_sitebar page_block">
+
+			<a href = "/edit">
+				<div class = "sitebar_element">
+					<div class = "sitebar_element_name"><?php echo $language['basic']; ?></div>
+				</div>
+			</a>
+
+			<a href = "/edit=contacts">
+				<div class = "sitebar_element">
+					<div class = "sitebar_element_name"><?php echo $language['contact']; ?></div>
+				</div>
+			</a>
+
+				<div class = "sitebar_element active">
+					<div class = "sitebar_element_name active_name"><?php echo $language['interests']; ?></div>
+				</div>
+
+			<a href = "/edit=position">
+				<div class = "sitebar_element">
+					<div class = "sitebar_element_name"><?php echo $language['personal']; ?></div>
+				</div>
+			</a>
+
+		</div>
+
+	</div>
+
+<?php
+
+	include './template/default/notify.html';
+
+?>
+
+<script type="text/javascript">
+	
+function edit_interests_opdate()
+{
+	var form = new FormData();
+
+	form.append("activity", document.getElementById('activity').textContent);
+	form.append("interests", document.getElementById('interests').textContent);
+	form.append("favorite_music", document.getElementById('favorite_music').textContent);
+	form.append("favorite_movies", document.getElementById('favorite_movies').textContent);
+	form.append("favorite_tv", document.getElementById('favorite_tv').textContent);
+	form.append("favorite_books", document.getElementById('favorite_books').textContent);
+	form.append("favorite_games", document.getElementById('favorite_games').textContent);
+	form.append("favorite_quotes", document.getElementById('favorite_quotes').textContent);
+	form.append("about_me", document.getElementById('about_me').textContent);
+
+	var xhr = new XMLHttpRequest();
+	xhr.open("POST", '../ajax/interests.php', true);
+	xhr.send(form);
+
+	xhr.onreadystatechange = function() {
+		console.log(xhr.responseText);
+		document.getElementById("test").innerHTML = xhr.responseText;
+
+		if (xhr.responseText == 'OK')
+		{
+			div = document.querySelector('div.closes');
+			div.style.display = "none";
+		}else
+		{
+			div = document.querySelector('div.closes');
+			div.style.display = "block";
+		}
+	}
+}
+
+</script>
+
+</body>
+</html>

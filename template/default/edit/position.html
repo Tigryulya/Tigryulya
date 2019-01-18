@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang = "EN">
+<head>
+	<meta charset = "UTF-8">
+	<title></title>
+	<link rel = "stylesheet" type = "text/css" href = "../template/default/css/style.css">
+	<link rel = "stylesheet" type = "text/css" href = "../template/default/css/edit.css">
+	<script type = "text/javascript" src = "../template/default/javascript/script.js"></script>
+</head>
+<body>
+	<div class = "wrapper_border">
+		<div class = "wrapper_content page_block">
+
+			<div class = "wrapper_content_header">
+				<div class = "header_title"><?php echo $language['life_position']; ?></div>
+			</div>
+
+			<div class = "wrap_function_border_bottom">
+
+				<div class = "pedit_row">
+
+					<div class = "label_name"><?php echo $language['political_preferences']; ?>:</div>
+
+					<select id = "political_preferences" class = "full_select">
+						<option <?php if ($edit['political_preferences'] == '1') echo 'selected'; ?> value = "1"><?php echo $language['noy_indicated']; ?></option>
+						<option <?php if ($edit['political_preferences'] == '2') echo 'selected'; ?> value = "2"><?php echo $language['apathetic']; ?></option>
+						<option <?php if ($edit['political_preferences'] == '3') echo 'selected'; ?> value = "3"><?php echo $language['communist']; ?></option>
+						<option <?php if ($edit['political_preferences'] == '4') echo 'selected'; ?> value = "4"><?php echo $language['socialist']; ?></option>
+						<option <?php if ($edit['political_preferences'] == '5') echo 'selected'; ?> value = "5"><?php echo $language['moderate']; ?></option>
+						<option <?php if ($edit['political_preferences'] == '6') echo 'selected'; ?> value = "6"><?php echo $language['liberal']; ?></option>
+						<option <?php if ($edit['political_preferences'] == '7') echo 'selected'; ?> value = "7"><?php echo $language['conservative']; ?></option>
+						<option <?php if ($edit['political_preferences'] == '8') echo 'selected'; ?> value = "8"><?php echo $language['monarchist']; ?></option>
+						<option <?php if ($edit['political_preferences'] == '9') echo 'selected'; ?> value = "9"><?php echo $language['ultraconservative']; ?></option>
+						<option <?php if ($edit['political_preferences'] == '10') echo 'selected'; ?> value = "10"><?php echo $language['libertarian']; ?></option>
+					</select>
+				</div>
+
+				<div class = "pedit_row">
+
+					<div class = "label_name"><?php echo $language['worldview']; ?>:</div>
+
+					<select id = "worldview" class = "full_select">
+						<option <?php if ($edit['worldview'] == '1') echo 'selected'; ?> value = "1"><?php echo $language['noy_indicated']; ?></option>
+						<option <?php if ($edit['worldview'] == '2') echo 'selected'; ?> value = "2"><?php echo $language['judaism']; ?></option>
+						<option <?php if ($edit['worldview'] == '3') echo 'selected'; ?> value = "3"><?php echo $language['orthodoxy']; ?></option>
+						<option <?php if ($edit['worldview'] == '4') echo 'selected'; ?> value = "4"><?php echo $language['catholicism']; ?></option>
+						<option <?php if ($edit['worldview'] == '5') echo 'selected'; ?> value = "5"><?php echo $language['protestantism']; ?></option>
+						<option <?php if ($edit['worldview'] == '6') echo 'selected'; ?> value = "6"><?php echo $language['islam']; ?></option>
+						<option <?php if ($edit['worldview'] == '7') echo 'selected'; ?> value = "7"><?php echo $language['buddhism']; ?></option>
+						<option <?php if ($edit['worldview'] == '8') echo 'selected'; ?> value = "8"><?php echo $language['confucianism']; ?></option>
+						<option <?php if ($edit['worldview'] == '9') echo 'selected'; ?> value = "9"><?php echo $language['secular_humanism']; ?></option>
+						<option <?php if ($edit['worldview'] == '10') echo 'selected'; ?> value = "10"><?php echo $language['pastafarianism']; ?></option>
+					</select>
+				</div>
+
+				<div class = "pedit_row">
+
+					<div class = "label_name"><?php echo $language['main_life']; ?>:</div>
+
+					<select id = "main_life" class = "full_select">
+						<option <?php if ($edit['main_life'] == '1') echo 'selected'; ?> value = "1"><?php echo $language['noy_indicated']; ?></option>
+						<option <?php if ($edit['main_life'] == '2') echo 'selected'; ?> value = "2"><?php echo $language['family_children']; ?></option>
+						<option <?php if ($edit['main_life'] == '3') echo 'selected'; ?> value = "3"><?php echo $language['career_money']; ?></option>
+						<option <?php if ($edit['main_life'] == '4') echo 'selected'; ?> value = "4"><?php echo $language['entertainment_leisure']; ?></option>
+						<option <?php if ($edit['main_life'] == '5') echo 'selected'; ?> value = "5"><?php echo $language['science_research']; ?></option>
+						<option <?php if ($edit['main_life'] == '6') echo 'selected'; ?> value = "6"><?php echo $language['improving_world']; ?></option>
+						<option <?php if ($edit['main_life'] == '7') echo 'selected'; ?> value = "7"><?php echo $language['personal_development']; ?></option>
+						<option <?php if ($edit['main_life'] == '8') echo 'selected'; ?> value = "8"><?php echo $language['beauty_art']; ?></option>
+						<option <?php if ($edit['main_life'] == '9') echo 'selected'; ?> value = "9"><?php echo $language['fame_influence']; ?></option>
+					</select>
+				</div>
+
+				<div class = "pedit_row">
+
+					<div class = "label_name"><?php echo $language['main_people']; ?>:</div>
+
+					<select id = "main_people" class = "full_select">
+						<option <?php if ($edit['main_people'] == '1') echo 'selected'; ?> value = "1"><?php echo $language['noy_indicated']; ?></option>
+						<option <?php if ($edit['main_people'] == '2') echo 'selected'; ?> value = "2"><?php echo $language['intellect_creativity']; ?></option>
+						<option <?php if ($edit['main_people'] == '3') echo 'selected'; ?> value = "3"><?php echo $language['kindness_honesty']; ?></option>
+						<option <?php if ($edit['main_people'] == '4') echo 'selected'; ?> value = "4"><?php echo $language['health_beauty']; ?></option>
+						<option <?php if ($edit['main_people'] == '5') echo 'selected'; ?> value = "5"><?php echo $language['wealth_power']; ?></option>
+						<option <?php if ($edit['main_people'] == '6') echo 'selected'; ?> value = "6"><?php echo $language['courage_persistence']; ?></option>
+						<option <?php if ($edit['main_people'] == '7') echo 'selected'; ?> value = "7"><?php echo $language['humor_love_life']; ?></option>
+					</select>
+				</div>
+
+				<div class = "pedit_row">
+
+					<div class = "label_name"><?php echo $language['attitude_smoking']; ?>:</div>
+
+					<select id = "attitude_smoking" class = "full_select">
+						<option <?php if ($edit['attitude_smoking'] == '1') echo 'selected'; ?> value = "1"><?php echo $language['noy_indicated']; ?></option>
+						<option <?php if ($edit['attitude_smoking'] == '2') echo 'selected'; ?> value = "2"><?php echo $language['very_negative']; ?></option>
+						<option <?php if ($edit['attitude_smoking'] == '3') echo 'selected'; ?> value = "3"><?php echo $language['negative']; ?></option>
+						<option <?php if ($edit['attitude_smoking'] == '4') echo 'selected'; ?> value = "4"><?php echo $language['compromisable']; ?></option>
+						<option <?php if ($edit['attitude_smoking'] == '5') echo 'selected'; ?> value = "5"><?php echo $language['neutral']; ?></option>
+						<option <?php if ($edit['attitude_smoking'] == '6') echo 'selected'; ?> value = "6"><?php echo $language['positive']; ?></option>
+					</select>
+				</div>
+
+				<div class = "pedit_row">
+
+					<div class = "label_name"><?php echo $language['attitude_alcohol']; ?>:</div>
+
+					<select id = "attitude_alcohol" class = "full_select">
+						<option <?php if ($edit['attitude_alcohol'] == '1') echo 'selected'; ?> value = "1"><?php echo $language['noy_indicated']; ?></option>
+						<option <?php if ($edit['attitude_alcohol'] == '2') echo 'selected'; ?> value = "2"><?php echo $language['very_negative']; ?></option>
+						<option <?php if ($edit['attitude_alcohol'] == '3') echo 'selected'; ?> value = "3"><?php echo $language['negative']; ?></option>
+						<option <?php if ($edit['attitude_alcohol'] == '4') echo 'selected'; ?> value = "4"><?php echo $language['compromisable']; ?></option>
+						<option <?php if ($edit['attitude_alcohol'] == '5') echo 'selected'; ?> value = "5"><?php echo $language['neutral']; ?></option>
+						<option <?php if ($edit['attitude_alcohol'] == '6') echo 'selected'; ?> value = "6"><?php echo $language['positive']; ?></option>
+					</select>
+				</div>
+
+				<div class = "pedit_row">
+
+					<div class = "label_name"><?php echo $language['inspire']; ?>:</div>
+					<div id = "inspire" class = "wrap_text_for_interests" contenteditable = "true" data-text = "<?php echo $language['noy_indicated']; ?>"><?php echo $edit['inspire']; ?></div>
+				</div>
+
+			<div class = "border_bottom"></div>
+
+			<div class = "wrap_edit_button_mine">
+				<button onclick = "edit_position_opdate()" class = "edit_button_mine button_active_on"><?php echo $language['send']; ?></button>
+			</div>
+
+			</div>
+
+		</div>
+
+		<div class = "wrapper_sitebar page_block">
+
+			<a href = "/edit">
+				<div class = "sitebar_element">
+					<div class = "sitebar_element_name"><?php echo $language['basic']; ?></div>
+				</div>
+			</a>
+
+			<a href = "/edit=contacts">
+				<div class = "sitebar_element">
+					<div class = "sitebar_element_name"><?php echo $language['contact']; ?></div>
+				</div>
+			</a>
+
+			<a href = "/edit=interests">
+				<div class = "sitebar_element">
+					<div class = "sitebar_element_name"><?php echo $language['interests']; ?></div>
+				</div>
+			</a>
+
+				<div class = "sitebar_element active">
+					<div class = "sitebar_element_name active_name"><?php echo $language['personal']; ?></div>
+				</div>
+
+		</div>
+
+	</div>
+
+<?php
+
+	include './template/default/notify.html';
+
+?>
+
+<script type="text/javascript">
+	
+function edit_position_opdate()
+{
+	var form = new FormData();
+
+	form.append("political_preferences", document.getElementById('political_preferences').value);
+	form.append("worldview", document.getElementById('worldview').value);
+	form.append("main_life", document.getElementById('main_life').value);
+	form.append("main_people", document.getElementById('main_people').value);
+	form.append("attitude_smoking", document.getElementById('attitude_smoking').value);
+	form.append("attitude_alcohol", document.getElementById('attitude_alcohol').value);
+	form.append("inspire", document.getElementById('inspire').textContent);
+
+
+	var xhr = new XMLHttpRequest();
+	xhr.open("POST", '../ajax/position.php', true);
+	xhr.send(form);
+
+	xhr.onreadystatechange = function() {
+		console.log(xhr.responseText);
+		document.getElementById("test").innerHTML = xhr.responseText;
+
+		if (xhr.responseText == 'OK')
+		{
+			div = document.querySelector('div.closes');
+			div.style.display = "none";
+		}else
+		{
+			div = document.querySelector('div.closes');
+			div.style.display = "block";
+		}
+	}
+}
+
+</script>
+
+</body>
+</html>

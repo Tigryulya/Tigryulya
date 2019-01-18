@@ -1,0 +1,77 @@
+.wrapper {
+	position: relative;
+	top: 42px;
+	width: 330px;
+	margin: 0 auto;
+}
+.content {
+	position: relative;
+	width: 100%;
+	background-color: #fff;
+}
+.wrap_input {
+	float: left;
+	position: relative;
+	top: 20px;
+	width: 230px;
+	margin: 0 34px;
+	margin-bottom: 11px;
+}
+.big_text {
+	padding: 6px 15px;
+	width: 100%;
+	height: 15px;
+	border-radius: 4px;
+	border: 1px solid #d3d9de;
+}
+.buttton_header_or_check {
+	float: left;
+	position: relative;
+	margin-left: 50px;
+	border: none;
+	color: #fff;
+	border-radius: 4px;
+	padding: 4px 35px;
+	font-size: 14px;
+	cursor: pointer;
+}
+
+
+
+
+/* date heppy  */
+.wrap_select_option_div {
+	margin: 0 0 0 29px;
+}
+.wrap_select_option select {
+	margin: 20px 0 0 6px;
+}
+.wrap_select_option select {
+	border: none;
+	border-radius: 4px;
+	border: 1px solid #d3d9de;
+	width: 80px;
+	height: 30px;
+	font-size: 12.5px;
+}
+.wrap_select_option select option {
+	color: #000;
+}
+/* date heppy  */
+
+.wrap_sex_user {
+	position: relative;
+	float: left;
+	width: 100%;
+}
+.wrap_input_radio_sex1_user {
+	float: left;
+	margin: 10px 35px;
+}
+.wrap_input_radio_sex2_user {
+	float: right;
+	margin: 10px 35px;
+}
+.user_sex_radio {
+	margin: 0 7px;
+}

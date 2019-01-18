@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang = "EN">
+<head>
+	<meta charset = "UTF-8">
+	<title></title>
+	<link rel = "stylesheet" type = "text/css" href = "../template/default/css/style.css">
+	<link rel = "stylesheet" type = "text/css" href = "../template/default/css/news.css">
+	<script type = "text/javascript" src = "../template/default/javascript/script.js"></script>
+</head>
+<body>
+
+	<div class = "wrapper">
+		<div class = "margin">
+
+			<div class = 'content_add_news'>
+				<div class = "who_div_left"><img class = "icon_user_add_news" src = "../img/users/camera_50.jpg"></div>
+
+				<div id = "news_text" class = "content_add_news_text" contenteditable = "true" role = "textbox" aria-multiline = "true" data-text = "Хотите чем то поделится ?"></div>
+
+				<div class = "content_add_news_block_send">
+					<button onclick = "add_news()" class = "button_send_news button_active_on">Отправить</button>
+
+					<div class = "icon_function_add_news"><div onclick = ""><img title = "Фотография" src = "../img/photo-camera.svg"></div></div>
+					<div class = "icon_function_add_news"><div onclick = ""><img title = "Видео" src = "../img/video-player.svg"></div></div>
+					<div class = "icon_function_add_news"><div onclick = ""><img title = "Музыка" src = "../img/audio-music.svg"></div></div>
+				</div>
+
+			</div>
+
+		<div  id = "news_opdate"></div>
+
+		</div>
+	</div>
+
+</body>
+</html>
+<script type="text/javascript">
+	
+update('news.php', 'news_opdate');
+
+function reedit(text)
+{
+	var form = new FormData();
+
+	var text_div = document.getElementById(text + '_edit_text').innerHTML;
+	form.append("id", text);
+	form.append("text", text_div);
+
+	var xhr = new XMLHttpRequest();
+	xhr.open("POST", '../ajax/reedit.php', true);
+	xhr.send(form);
+
+	xhr.onreadystatechange = function() {
+		update('news.php', 'news_opdate');
+	}
+}
+
+function edit_news(id)
+{
+	document.getElementById(id).style.display = "none";
+	document.getElementById(id + '_edit').style.display = "block";
+}
+function not_edit_news(id)
+{
+	document.getElementById(id).style.display = "block";
+	document.getElementById(id + '_edit').style.display = "none";
+}
+
+function delete_news(id)
+{
+	var form = new FormData();
+
+	form.append("id", id);
+
+	var xhr = new XMLHttpRequest();
+	xhr.open("POST", '../ajax/delete_news.php', true);
+	xhr.send(form);
+
+	xhr.onreadystatechange = function() {
+		update('news.php', 'news_opdate');
+	}
+}
+
+function add_news()
+{
+	var form = new FormData();
+
+	var text = document.getElementById('news_text').innerHTML;
+	form.append("text", text);
+
+	document.getElementById('news_text').innerHTML = '';
+
+	var xhr = new XMLHttpRequest();
+	xhr.open("POST", '../ajax/add_news.php', true);
+	xhr.send(form);
+
+	xhr.onreadystatechange = function() {
+		update('news.php', 'news_opdate');
+	}
+}
+
+</script>

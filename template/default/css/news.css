@@ -1,0 +1,238 @@
+.content_add_news { /* Add News */
+	position: relative;
+	float: left;
+	width: 600px;
+	min-height: 42px;
+	max-height: 4200px;
+	background: #fff;
+	border-radius: 2px;
+	box-shadow: 0 1px 0 0 #d7d8db, 0 0 0 1px #e3e4e8;
+	margin-bottom: 15px;
+}
+.who_div_left {
+	position: relative;
+	float: left;
+	padding: 7px 15px;
+	padding-bottom: 0;
+}
+.icon_user_add_news {
+	width: 28px;
+	height: 28px;
+	border-radius: 50%;
+}
+.content_add_news_text {
+	margin: 0 58px;
+	width: calc(100% - 80px);
+	padding: 14px 10px;
+	height: calc(100% - 28px);
+	background: #ffffff;
+	font-size: 13px;
+}
+[contenteditable = true]:empty:not(:focus):before {
+    content: attr(data-text);
+    color: #9E9E9E;
+}
+.content_add_news_block_send {
+	width: calc(100% - 30px);
+	height: 42px;
+	margin: 0 auto;
+	border-top: 1px solid #e7e8ec;
+}
+.button_send_news {
+	float: left;
+	margin: 10px 0px;
+	padding: 0 30px;
+	height: 22px;
+}
+.icon_function_add_news {
+	float: right;
+	padding: 9px 10px;
+	padding-bottom: 0px;
+}
+.icon_function_add_news img {
+	width: 20px;
+	height: 20px;
+}
+
+
+
+.wrap_not_posts {
+	position: relative;
+	float: left;
+	width: 100%;
+	height: 100px;
+	background: #fff;
+	border-radius: 2px;
+	box-shadow: 0 1px 0 0 #d7d8db, 0 0 0 1px #e3e4e8;
+	margin-bottom: 15px;
+}
+.not_posts_name {
+	font-size: 19px;
+	color: #4872a3;
+	text-align: center;
+	padding-top: 35px;
+}
+
+
+
+.content_news { /* Block News */
+	position: relative;
+	float: left;
+	width: 600px;
+	background: #fff;
+	border-radius: 2px;
+    box-shadow: 0 1px 0 0 #d7d8db, 0 0 0 1px #e3e4e8;
+    margin-bottom: 15px;
+}
+
+
+
+.content_news_header { /* Header News */
+	width: calc(100% - 30px);
+	height: 58px;
+	margin: 0 auto;
+	border-bottom: 1px solid #e7e8ec;
+}
+.header_div_icon_who {
+	float: left;
+	padding: 8px 0px;
+	padding-bottom: 0;
+}
+.header_div_icon_who img {
+	width: 42px;
+	height: 42px;
+	border-radius: 50%;
+}
+.header_div_name {
+	float: left;
+	font-size: 10px;
+	color: #939393;
+	margin: 13px 10px;
+	margin-bottom: 0;
+	cursor: pointer;
+}
+.header_title {
+	font-weight: 600;
+	font-size: 14px;
+	color: #4872a3;
+}
+.header_title:hover {
+	text-decoration: underline;
+}
+.header_date {
+	padding: 4px 0 0 0;
+}
+.header_date:hover {
+	text-decoration: underline;
+}
+.header_div_icon_funct {
+	float: right;
+	margin: 20px 15px;
+	margin-bottom: 0;
+}
+.header_icon_funct {
+	width: 20px;
+	height: 20px;
+}
+.header_div_icon_funct:hover .in_header_function_block {
+	display: block;
+}
+.in_header_function_block {
+	position: absolute;
+	top: 40px;
+	right: 20px;
+	min-width: 200px;
+	max-width: 400px;
+	background: #fff;
+	border-radius: 2px;
+    box-shadow: 0 1px 0 0 #d7d8db, 0 0 0 1px #e3e4e8;
+	display: none;
+}
+.in_header_function_link {
+	font-size: 12px;
+	margin: 5px 2px;
+	padding: 7px 15px;
+	color: #4872a3;
+	cursor: pointer;
+}
+.in_header_function_link:hover {
+	background: #edeef0;
+}
+
+
+
+.content_news_center { /* Center News */
+	width: 100%;
+	height: 100%;
+	padding: 10px 0;
+}
+.center_content_news_text {
+	padding: 0 15px 10px 15px;
+	font-size: 13px;
+	line-height: 19px;
+    overflow: hidden;
+    word-wrap: break-word;
+}
+.edit_center_content_news_text {
+	width: calc(100% - 60px);
+	margin: 0 auto;
+	padding: 5px 10px;
+	padding-bottom: 10px;
+	font-size: 13px;
+	line-height: 18px;
+    overflow: hidden;
+    word-wrap: break-word;
+    border: 2px solid #e7e8ec;
+}
+.center_content_news_image {
+	min-width: 50px;
+	max-width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+.wrap_button_news_edit {
+	position: relative;
+	right: 0;
+	margin-top: 10px;
+}
+.button_news_edit {
+	padding: 4px 15px;
+}
+
+
+.content_news_footer { /* Footer News */
+	width: calc(100% - 30px);
+	height: 58px;
+	margin: 0 auto;
+	border-top: 1px solid #e7e8ec;
+}
+.footer_div_icon {
+	margin: 15px 0 0 0;
+	margin-right: 25px;
+	float: left;
+	cursor: pointer;
+}
+.footer_div_icon img {
+	width: 25px;
+	height: 25px;
+}
+.footer_div_num {
+	font-size: 18px;
+	line-height: 22px;
+	padding-left:10px;
+	float: right;
+}
+
+
+
+.margin {
+	position: relative;
+	top: 58px;
+	left: 0;
+	right: 0;
+	width: 600px;
+	margin: 0 auto;
+}
+.margin_15 {
+	margin: 15px 0 0 0;
+}

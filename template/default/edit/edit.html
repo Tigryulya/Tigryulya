@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang = "EN">
+<head>
+	<meta charset = "UTF-8">
+	<title></title>
+	<link rel = "stylesheet" type = "text/css" href = "../template/default/css/style.css">
+	<link rel = "stylesheet" type = "text/css" href = "../template/default/css/edit.css">
+	<script type = "text/javascript" src = "../template/default/javascript/script.js"></script>
+</head>
+<body>
+	<div class = "wrapper_border">
+		<div class = "wrapper_content page_block">
+
+			<div class = "wrapper_content_header">
+				<div class = "header_title"><?php echo $language['basic']; ?></div>
+			</div>
+
+			<div class = "wrap_function_border_bottom">
+
+				<div class = "pedit_row">
+
+					<div class = "label_name"><?php echo $language['name']; ?>:</div>
+					<input value = "<?php echo $edit['name']; ?>" id = "edit_name" class = "field_function" placeholder = "<?php echo $language['noy_indicated']; ?>">
+				</div>
+
+				<div class = "pedit_row">
+
+					<div class = "label_name"><?php echo $language['surname']; ?>:</div>
+					<input value = "<?php echo $edit['surname']; ?>" id = "edit_surname" class = "field_function" placeholder = "<?php echo $language['noy_indicated']; ?>">
+				</div>
+
+				<div class = "pedit_row">
+
+					<div class = "label_name"><?php echo $language['sex']; ?>:</div>
+
+					<select id = "edit_sex" class = "full_select">
+						<option <?php if ($edit['sex'] == '1') echo 'selected'; ?> value = "1"><?php echo $language['man']; ?></option>
+						<option <?php if ($edit['sex'] == '2') echo 'selected'; ?> value = "2"><?php echo $language['woman']; ?></option>
+					</select>
+				</div>
+
+				<div class = "pedit_row">
+
+					<div class = "label_name"><?php echo $language['family']; ?>:</div>
+
+					<select id = "edit_family" class = "full_select">
+						<option <?php if ($edit['family'] == '0') echo 'selected'; ?> value = "0"><?php echo $language['noy_select']; ?></option>
+						<option <?php if ($edit['family'] == '1') echo 'selected'; ?> value = "1"><?php echo $language['noy_married']; ?></option>
+						<option <?php if ($edit['family'] == '2') echo 'selected'; ?> value = "2"><?php echo $language['dating']; ?></option>
+						<option <?php if ($edit['family'] == '3') echo 'selected'; ?> value = "3"><?php echo $language['engaged']; ?></option>
+						<option <?php if ($edit['family'] == '4') echo 'selected'; ?> value = "4"><?php echo $language['married']; ?></option>
+						<option <?php if ($edit['family'] == '5') echo 'selected'; ?> value = "5"><?php echo $language['civil_marriage']; ?></option>
+						<option <?php if ($edit['family'] == '6') echo 'selected'; ?> value = "6"><?php echo $language['In_love']; ?></option>
+						<option <?php if ($edit['family'] == '7') echo 'selected'; ?> value = "7"><?php echo $language['all_complicated']; ?></option>
+						<option <?php if ($edit['family'] == '8') echo 'selected'; ?> value = "8"><?php echo $language['activy_searching']; ?></option>
+					</select>
+				</div>
+
+				<div class = "pedit_row">
+
+					<div class = "label_name"><?php echo $language['birthday']; ?>:</div>
+
+					<select id = "edit_date_day" class = "full_date">
+						<option <?php if ($edit['birth_day'] == '1') echo 'selected'; ?> value = "1">1</option>
+						<option <?php if ($edit['birth_day'] == '2') echo 'selected'; ?> value = "2">2</option>
+						<option <?php if ($edit['birth_day'] == '3') echo 'selected'; ?> value = "3">3</option>
+						<option <?php if ($edit['birth_day'] == '4') echo 'selected'; ?> value = "4">4</option>
+						<option <?php if ($edit['birth_day'] == '5') echo 'selected'; ?> value = "5">5</option>
+						<option <?php if ($edit['birth_day'] == '6') echo 'selected'; ?> value = "6">6</option>
+						<option <?php if ($edit['birth_day'] == '7') echo 'selected'; ?> value = "7">7</option>
+						<option <?php if ($edit['birth_day'] == '8') echo 'selected'; ?> value = "8">8</option>
+						<option <?php if ($edit['birth_day'] == '9') echo 'selected'; ?> value = "9">9</option>
+						<option <?php if ($edit['birth_day'] == '10') echo 'selected'; ?> value = "10">10</option>
+						<option <?php if ($edit['birth_day'] == '11') echo 'selected'; ?> value = "11">11</option>
+						<option <?php if ($edit['birth_day'] == '12') echo 'selected'; ?> value = "12">12</option>
+						<option <?php if ($edit['birth_day'] == '13') echo 'selected'; ?> value = "13">13</option>
+						<option <?php if ($edit['birth_day'] == '14') echo 'selected'; ?> value = "14">14</option>
+						<option <?php if ($edit['birth_day'] == '15') echo 'selected'; ?> value = "15">15</option>
+						<option <?php if ($edit['birth_day'] == '16') echo 'selected'; ?> value = "16">16</option>
+						<option <?php if ($edit['birth_day'] == '17') echo 'selected'; ?> value = "17">17</option>
+						<option <?php if ($edit['birth_day'] == '18') echo 'selected'; ?> value = "18">18</option>
+						<option <?php if ($edit['birth_day'] == '19') echo 'selected'; ?> value = "19">19</option>
+						<option <?php if ($edit['birth_day'] == '20') echo 'selected'; ?> value = "20">20</option>
+						<option <?php if ($edit['birth_day'] == '21') echo 'selected'; ?> value = "21">21</option>
+						<option <?php if ($edit['birth_day'] == '22') echo 'selected'; ?> value = "22">22</option>
+						<option <?php if ($edit['birth_day'] == '23') echo 'selected'; ?> value = "23">23</option>
+						<option <?php if ($edit['birth_day'] == '24') echo 'selected'; ?> value = "24">24</option>
+						<option <?php if ($edit['birth_day'] == '25') echo 'selected'; ?> value = "25">25</option>
+						<option <?php if ($edit['birth_day'] == '26') echo 'selected'; ?> value = "26">26</option>
+						<option <?php if ($edit['birth_day'] == '27') echo 'selected'; ?> value = "27">27</option>
+						<option <?php if ($edit['birth_day'] == '28') echo 'selected'; ?> value = "28">28</option>
+						<option <?php if ($edit['birth_day'] == '29') echo 'selected'; ?> value = "29">29</option>
+						<option <?php if ($edit['birth_day'] == '30') echo 'selected'; ?> value = "30">30</option>
+						<option <?php if ($edit['birth_day'] == '31') echo 'selected'; ?> value = "31">31</option>
+					</select>
+
+					<select id = "edit_date_month" class = "full_date">
+						<option <?php if ($edit['birth_month'] == '1') echo 'selected'; ?> value = "1"><?php echo $language['January']; ?></option>
+						<option <?php if ($edit['birth_month'] == '2') echo 'selected'; ?> value = "2"><?php echo $language['February']; ?></option>
+						<option <?php if ($edit['birth_month'] == '3') echo 'selected'; ?> value = "3"><?php echo $language['Martha']; ?></option>
+						<option <?php if ($edit['birth_month'] == '4') echo 'selected'; ?> value = "4"><?php echo $language['April']; ?></option>
+						<option <?php if ($edit['birth_month'] == '5') echo 'selected'; ?> value = "5"><?php echo $language['May']; ?></option>
+						<option <?php if ($edit['birth_month'] == '6') echo 'selected'; ?> value = "6"><?php echo $language['June']; ?></option>
+						<option <?php if ($edit['birth_month'] == '7') echo 'selected'; ?> value = "7"><?php echo $language['July']; ?></option>
+						<option <?php if ($edit['birth_month'] == '8') echo 'selected'; ?> value = "8"><?php echo $language['Augusta']; ?></option>
+						<option <?php if ($edit['birth_month'] == '9') echo 'selected'; ?> value = "9"><?php echo $language['September']; ?></option>
+						<option <?php if ($edit['birth_month'] == '10') echo 'selected'; ?> value = "10"><?php echo $language['October']; ?></option>
+						<option <?php if ($edit['birth_month'] == '11') echo 'selected'; ?> value = "11"><?php echo $language['November']; ?></option>
+						<option <?php if ($edit['birth_month'] == '12') echo 'selected'; ?> value = "12"><?php echo $language['December']; ?></option>
+					</select>
+
+					<select id = "edit_date_year" class = "full_date">
+						<option <?php if ($edit['birth_year'] == '2018') echo 'selected'; ?> value = "2018">2018</option>
+						<option <?php if ($edit['birth_year'] == '2017') echo 'selected'; ?> value = "2017">2017</option>
+						<option <?php if ($edit['birth_year'] == '2016') echo 'selected'; ?> value = "2016">2016</option>
+						<option <?php if ($edit['birth_year'] == '2015') echo 'selected'; ?> value = "2015">2015</option>
+						<option <?php if ($edit['birth_year'] == '2014') echo 'selected'; ?> value = "2014">2014</option>
+						<option <?php if ($edit['birth_year'] == '2013') echo 'selected'; ?> value = "2013">2013</option>
+						<option <?php if ($edit['birth_year'] == '2012') echo 'selected'; ?> value = "2012">2012</option>
+						<option <?php if ($edit['birth_year'] == '2011') echo 'selected'; ?> value = "2011">2011</option>
+						<option <?php if ($edit['birth_year'] == '2010') echo 'selected'; ?> value = "2010">2010</option>
+						<option <?php if ($edit['birth_year'] == '2009') echo 'selected'; ?> value = "2009">2009</option>
+						<option <?php if ($edit['birth_year'] == '2008') echo 'selected'; ?> value = "2008">2008</option>
+						<option <?php if ($edit['birth_year'] == '2007') echo 'selected'; ?> value = "2007">2007</option>
+						<option <?php if ($edit['birth_year'] == '2006') echo 'selected'; ?> value = "2006">2006</option>
+						<option <?php if ($edit['birth_year'] == '2005') echo 'selected'; ?> value = "2005">2005</option>
+						<option <?php if ($edit['birth_year'] == '2004') echo 'selected'; ?> value = "2004">2004</option>
+						<option <?php if ($edit['birth_year'] == '2003') echo 'selected'; ?> value = "2003">2003</option>
+						<option <?php if ($edit['birth_year'] == '2002') echo 'selected'; ?> value = "2002">2002</option>
+						<option <?php if ($edit['birth_year'] == '2001') echo 'selected'; ?> value = "2001">2001</option>
+						<option <?php if ($edit['birth_year'] == '2000') echo 'selected'; ?> value = "2000">2000</option>
+					</select>
+				</div>
+
+				<div class = "pedit_row">
+
+					<div class = "label_name"></div>
+
+					<select id = "edit_fully_birthday" class = "full_select">
+						<option <?php if ($edit['birthday_access'] == '1') echo 'selected'; ?> value = "1"><?php echo $language['show_birthday']; ?></option>
+						<option <?php if ($edit['birthday_access'] == '2') echo 'selected'; ?> value = "2"><?php echo $language['show_month_day']; ?></option>
+						<option <?php if ($edit['birthday_access'] == '3') echo 'selected'; ?> value = "3"><?php echo $language['noy_show_birthday']; ?></option>
+					</select>
+				</div>
+
+				<div class = "pedit_row">
+
+					<div class = "label_name"><?php echo $language['hometown']; ?>:</div>
+
+					<input value = "<?php echo $edit['hometown']; ?>" id = "edit_home_town" class = "field_function" placeholder = "<?php echo $language['noy_indicated']; ?>">
+				</div>
+
+				<div class = "pedit_row">
+
+					<div class = "label_name"><?php echo $language['languages']; ?>:</div>
+
+					<input value = "<?php echo $edit['languages']; ?>" id = "edit_languages" class = "field_function" placeholder = "<?php echo $language['noy_indicated']; ?>">
+				</div>
+
+			</div>
+
+			<div class = "border_bottom"></div>
+
+			<div class = "wrap_edit_button_mine">
+				<button onclick = "edit_opdate()" class = "edit_button_mine button_active_on"><?php echo $language['send']; ?></button>
+			</div>
+
+		</div>
+
+		<div class = "wrapper_sitebar page_block">
+
+				<div class = "sitebar_element active">
+					<div class = "sitebar_element_name active_name"><?php echo $language['basic']; ?></div>
+				</div>
+
+			<a href = "/edit=contacts">
+				<div class = "sitebar_element">
+					<div class = "sitebar_element_name"><?php echo $language['contact']; ?></div>
+				</div>
+			</a>
+
+			<a href = "/edit=interests">
+				<div class = "sitebar_element">
+					<div class = "sitebar_element_name"><?php echo $language['interests']; ?></div>
+				</div>
+			</a>
+
+			<a href = "/edit=position">
+				<div class = "sitebar_element">
+					<div class = "sitebar_element_name"><?php echo $language['personal']; ?></div>
+				</div>
+			</a>
+
+		</div>
+
+	</div>
+
+<?php
+
+	include './template/default/notify.html';
+
+?>
+
+<script type="text/javascript">
+	
+function edit_opdate()
+{
+	var form = new FormData();
+
+	form.append("name", document.getElementById('edit_name').value);
+	form.append("surname", document.getElementById('edit_surname').value);
+	form.append("sex", document.getElementById('edit_sex').value);
+	form.append("family", document.getElementById('edit_family').value);
+	form.append("birth_day", document.getElementById('edit_date_day').value);
+	form.append("birth_month", document.getElementById('edit_date_month').value);
+	form.append("birth_year", document.getElementById('edit_date_year').value);
+	form.append("birthday_access", document.getElementById('edit_fully_birthday').value);
+	form.append("hometown", document.getElementById('edit_home_town').value);
+	form.append("languages", document.getElementById('edit_languages').value);
+
+	var xhr = new XMLHttpRequest();
+	xhr.open("POST", '../ajax/edit.php', true);
+	xhr.send(form);
+
+	xhr.onreadystatechange = function() {
+		console.log(xhr.responseText);
+		document.getElementById("test").innerHTML = xhr.responseText;
+
+		if (xhr.responseText == 'OK')
+		{
+			div = document.querySelector('div.closes');
+			div.style.display = "none";
+		}else
+		{
+			div = document.querySelector('div.closes');
+			div.style.display = "block";
+		}
+	}
+}
+
+</script>
+
+</body>
+</html>
